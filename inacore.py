@@ -4,7 +4,7 @@ client = discord.Client()
 # 起動時のメッセージ
 @client.event
 async def on_ready():
- open = client.get_channel(チャンネルID)
+ open = client.get_channel(717604364587630693)
  await open.send('opened!')
 @client.event
 async def on_message(message):
@@ -20,6 +20,6 @@ async def on_message(message):
    count += 1
    if(count == 5):
     break
- if message.content.startwith('こん')
+ if message.content.startwith('こん'):
   await message.channel.send('こんにちは！')
 client.run('NzE3NTkwOTc2MTU1MjIyMDI4.XtcmVw.k8QN9W-LtTZyhNc1J2A6mi89aMs')
