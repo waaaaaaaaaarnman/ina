@@ -1,1 +1,1 @@
-python inacore.py
+inacode: python inacore.py
