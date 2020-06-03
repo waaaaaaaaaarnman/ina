@@ -21,7 +21,5 @@ async def on_message(message):
    count += 1
    if(count == 5):
     break
- if message.content.startwith('こん'):
-  await message.channel.send('こんにちは！')
 
 client.run('NzE3NTkwOTc2MTU1MjIyMDI4.XtcmVw.k8QN9W-LtTZyhNc1J2A6mi89aMs')
