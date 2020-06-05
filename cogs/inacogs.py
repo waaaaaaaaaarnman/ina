@@ -6,4 +6,4 @@ class inacog(commands.Cog):
     async def ping(self, ctx):
         await ctx.send('pong!')
 def setup(bot):
-    bot.add_cog(inacog(bot)) # TestCogにBotを渡してインスタンス化し、Botにコグとして登録する。
+    bot.add_cog(inacog(bot))
