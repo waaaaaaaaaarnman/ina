@@ -17,5 +17,5 @@ class inachancog(commands.Bot):
         print(self.user.id)
         print('-----')
 if __name__ == '__main__':
-    bot = MyBot(command_prefix='i!')
+    bot = inachancog(command_prefix='i!')
     bot.run('OU02s4VtcIYcI8wHBeIzkwn4R30aXNLX')
