@@ -4,7 +4,7 @@ import traceback # エラー表示のためにインポート
 
 # 読み込むコグの名前を格納しておく。
 INITIAL_EXTENSIONS = [
-    'cogs.testcog'
+    'cogs.inaCog'
 ]
 
 # クラスの定義。ClientのサブクラスであるBotクラスを継承。
