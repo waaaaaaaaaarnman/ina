@@ -1,17 +1,37 @@
-from discord.ext import commands # Bot Commands Frameworkのインポート
+from discord.ext import commands # Bot Commands Frameworkをインポート
 
-# コグとして用いるクラスを定義。
-class TestCog(commands.Cog):
+import traceback # エラー表示のためにインポート
 
-    # TestCogクラスのコンストラクタ。Botを受取り、インスタンス変数として保持。
-    def __init__(self, bot):
-        self.bot = bot
+# 読み込むコグの名前を格納しておく。
+INITIAL_EXTENSIONS = [
+    'cogs.testcog'
+]
 
-    # コマンドの作成。コマンドはcommandデコレータで必ず修飾する。
-    @commands.command()
-    async def ping(self, ctx):
-        await ctx.send('pong!')
+# クラスの定義。ClientのサブクラスであるBotクラスを継承。
+class MyBot(commands.Bot):
 
-# Bot本体側からコグを読み込む際に呼び出される関数。
-def setup(bot):
-    bot.add_cog(TestCog(bot)) # TestCogにBotを渡してインスタンス化し、Botにコグとして登録する。
+    # MyBotのコンストラクタ。
+    def __init__(self, command_prefix):
+        # スーパークラスのコンストラクタに値を渡して実行。
+        super().__init__(command_prefix)
+
+        # INITIAL_COGSに格納されている名前から、コグを読み込む。
+        # エラーが発生した場合は、エラー内容を表示。
+        for cog in INITIAL_EXTENSIONS:
+            try:
+                self.load_extension(cog)
+            except Exception:
+                traceback.print_exc()
+
+    # Botの準備完了時に呼び出されるイベント
+    async def on_ready(self):
+        print('-----')
+        print(self.user.name)
+        print(self.user.id)
+        print('-----')
+
+
+# MyBotのインスタンス化及び起動処理。
+if __name__ == '__main__':
+    bot = MyBot(command_prefix='!') # command_prefixはコマンドの最初の文字として使うもの。 e.g. !ping
+    bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.XuRqJQ.sesJjpbvS2ojf9fiJ-FJ0kFZbpk') # Botのトークン
