@@ -3,10 +3,6 @@ import traceback
 
 bot = commands.Bot(command_prefix='i!')
 
-@bot.event
-async def on_command_error(ctx, error):
- print(error,ctx.message.content)
-
 @bot.event()
 async def on_ready(self):
         print('-----')
