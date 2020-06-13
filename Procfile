@@ -1,2 +1,2 @@
 inacode: python inacore.py
-inacode: python inacog.py
+inacode2: python cogs/inacog.py
