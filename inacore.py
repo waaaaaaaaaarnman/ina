@@ -15,11 +15,8 @@ async def on_command_error(ctx, error):
     m = await bot.get_channel(ch).send(embed=embed)
     await ctx.send(f"何らかのエラーが発生しました。ごめんなさい。\nこのエラーについて問い合わせるときはこのコードも一緒にお知らせください：{m.id}")
 @bot.event
-async def on_ready(self):
-        print('-----')
-        print(self.user.name)
-        print(self.user.id)
-        print('-----')
+async def on_ready():
+ await bot.get_channel(717604364587630693).send('opened!')
 
 @bot.command()
 async def ping(ctx):
