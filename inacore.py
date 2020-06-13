@@ -1,14 +1,17 @@
-from discord.ext import commands
-import traceback
-bot = commands.Bot(command_prefix='i!')
-@bot.event
-async def on_ready():
-    await client.change_presence(activity=discord.Game(name='testing'))
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
-@bot.command()
-async def hello(ctx):
-    await ctx.send('hello!')
-bot.run('OU02s4VtcIYcI8wHBeIzkwn4R30aXNLX')
+from discord.ext import commands # Bot Commands Frameworkのインポート
+
+# コグとして用いるクラスを定義。
+class TestCog(commands.Cog):
+
+    # TestCogクラスのコンストラクタ。Botを受取り、インスタンス変数として保持。
+    def __init__(self, bot):
+        self.bot = bot
+
+    # コマンドの作成。コマンドはcommandデコレータで必ず修飾する。
+    @commands.command()
+    async def ping(self, ctx):
+        await ctx.send('pong!')
+
+# Bot本体側からコグを読み込む際に呼び出される関数。
+def setup(bot):
+    bot.add_cog(TestCog(bot)) # TestCogにBotを渡してインスタンス化し、Botにコグとして登録する。
