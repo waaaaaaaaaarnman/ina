@@ -7,6 +7,10 @@ class inacog(commands.Cog):
     @commands.command()
     async def what(self, ctx, what):
      await ctx.send(f'{what}とはなんですか？')
+    @commands.command()
+    async def honyaku(self,ctx,honyaku):
+     
+     
     @commands.Cog.listener()
     async def on_message(self, message):
      if message.author.bot:
