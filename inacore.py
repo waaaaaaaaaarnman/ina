@@ -1,9 +1,11 @@
 #coding: utf-8
+import discord.py
 from discord.ext import commands
 import traceback
 from googlesearch import search
 from googletrans import Translator
 bot = commands.Bot(command_prefix='i!')
+client = discord.client()
 @bot.event
 async def on_command_error(self,ctx, error):
  ctx.send('エラー',error)
@@ -25,7 +27,12 @@ async def honyaku(ctx):
  translator = Translator()
  aaa = translator.translate(ctx.message.content, src='en', dest='ja')
  await ctx.send(aaa.text)
+@client.event
+async def on_message(message):
+ if message.content == 'aaa':
+  await message.channel.send('aa')
              
     
 
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.XuRqJQ.sesJjpbvS2ojf9fiJ-FJ0kFZbpk')
+client.run('NzE3NTkwOTc2MTU1MjIyMDI4.XuRqJQ.sesJjpbvS2ojf9fiJ-FJ0kFZbpk')
