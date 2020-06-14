@@ -25,7 +25,7 @@ class yomiage(commands.Cog):
    return
  @commands.Cog.listener()
  async def on_message(message):
-  if voice_client:
+  if not voice_client = None:
    hoge = gTTS(message.content)
    hoge.save("s.mp3")
    ffmpeg_audio_source = discord.FFmpegPCMAudio("s.mp3")
