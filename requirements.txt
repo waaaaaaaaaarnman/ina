@@ -3,4 +3,4 @@ google > requirements.txt
 googletrans > requirements.txt
 gTTS > requirements.txt
 ffmpeg > requirements.txt
-opus >  requirements.txt
+node_opus >  requirements.txt
