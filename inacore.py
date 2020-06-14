@@ -1,5 +1,5 @@
 #coding: utf-8
-import discord.py
+import discord
 from discord.ext import commands
 import traceback
 from googlesearch import search
