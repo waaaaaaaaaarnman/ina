@@ -5,7 +5,7 @@ class inacog2(commands.Cog):
     async def pingu(self, ctx):
      await ctx.send('pongu!')
     @commands.command()
-    async def whatis(self, ctx, what):
+    async def whatis(self, ctx, whatis):
      await ctx.send(f'{whatis}とは？')
 def setup(bot):
     bot.add_cog(inacog2(bot))
