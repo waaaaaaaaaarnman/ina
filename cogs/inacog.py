@@ -9,7 +9,10 @@ class inacog(commands.Cog):
      await ctx.send(f'{what}とはなんですか？')
     @commands.command()
     async def honyaku(self,ctx,honyaku):
-     
+     from googletrans import Translator
+     translator = Translator()
+     aaa = translator.translate(honyaku, src='en', dest='ja')
+     await ctx.send(aaa.text)
      
     @commands.Cog.listener()
     async def on_message(self, message):
