@@ -6,6 +6,9 @@ from discord.ext import commands
 
 bot = commands.Bot(command_prefix='i!')
 
+if not discord.opus.is_loaded():
+    discord.opus.load_opus("heroku-buildpack-libopus")
+
 @bot.event
 async def on_ready():
     print('------')
