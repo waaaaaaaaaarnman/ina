@@ -35,4 +35,4 @@ class yomiage(commands.Cog):
      ffmpeg_audio_source = discord.FFmpegPCMAudio("s.mp3")
      voice_client.play(ffmpeg_audio_source)
 def setup(bot):
-    bot.add_cog(inacog(bot))
+    bot.add_cog(yomiage(bot))
