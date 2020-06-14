@@ -25,6 +25,14 @@ async def honyaku(ctx):
  translator = Translator()
  aaa = translator.translate(ctx.message.content, src='en', dest='ja')
  await ctx.send(aaa.text)
+    @bot.listener()
+    async def on_message(self, message):
+        if message.author.bot:
+            return
+
+        if message.content == 'こんにちは':
+            await message.channel.send('こんにちは')
+             
     
 
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.XuRqJQ.sesJjpbvS2ojf9fiJ-FJ0kFZbpk')
