@@ -13,5 +13,5 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    game.setup(bot)
+    inacog.setup(bot)
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.XuRqJQ.sesJjpbvS2ojf9fiJ-FJ0kFZbpk')
