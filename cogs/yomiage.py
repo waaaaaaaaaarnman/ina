@@ -1,7 +1,7 @@
 from discord.ext import commands
 
 class yomiage(commands.Cog):
- @bot.command()
+ @commands.command()
  async def join(ctx):
   voice_state = ctx.author.voice
   if (not voice_state) or (not voice_state.channel):
@@ -9,7 +9,7 @@ class yomiage(commands.Cog):
    return
   channel = voice_state.channel
   await channel.connect()
- @bot.command()
+ @commands.command()
  async def leave(ctx):
   voice_client = ctx.message.guild.voice_client
   if not voice_client:
@@ -17,7 +17,7 @@ class yomiage(commands.Cog):
    return
   await voice_client.disconnect()
   await ctx.send("ボイスチャンネルから切断しました。")
- @bot.command()
+ @commands.command()
  async def play(ctx):
   voice_client = ctx.message.guild.voice_client
   if not voice_client:
