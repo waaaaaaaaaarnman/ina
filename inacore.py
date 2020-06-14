@@ -1,4 +1,24 @@
 #coding: utf-8
+import os
+import configparser
+import discord
+import random
+import cogs.game as game
+
+from discord.ext import commands
+
+bot = commands.Bot(command_prefix='i!')
+
+@bot.event
+async def on_ready():
+    print('------')
+    print('Logged in as')
+    print(bot.user.name)
+    print(bot.user.id)
+    print('------')
+
+bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.XuRqJQ.sesJjpbvS2ojf9fiJ-FJ0kFZbpk')
+
 import discord
 from discord.ext import commands
 import traceback
