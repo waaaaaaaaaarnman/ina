@@ -4,7 +4,7 @@ import cogs.inacog as inacog
 import cogs.inacog2 as inacog2
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix='i!')
+bot = commands.Bot(command_prefix='i!'command=None)
 
 @bot.event
 async def on_ready():
