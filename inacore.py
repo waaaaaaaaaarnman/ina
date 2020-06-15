@@ -4,7 +4,15 @@ import cogs.inacog as inacog
 import cogs.inacog2 as inacog2
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix='i!'command=None)
+bot = commands.Bot(command_prefix='i!',command=None)
+bot.remove_command("help")
+@bot.event
+async def command_not_found(self,string):
+    return f"{string} というコマンドは存在しません。"
+@bot.event
+async def on_command_error(ctx, error):
+ return f'{error}が発生しました
+    
 
 @bot.event
 async def on_ready():
