@@ -7,9 +7,6 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix='i!',command=None)
 bot.remove_command("help")
 @bot.event
-async def command_not_found(ctx,string):
- await ctx.send(f'{string} というコマンドは存在しません。')
-@bot.event
 async def on_command_error(ctx, error):
  await ctx.send(f'{error}が発生しました')
     
