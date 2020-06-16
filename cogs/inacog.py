@@ -13,9 +13,6 @@ class inacog(commands.Cog):
      translator = Translator()
      aaa = translator.translate(honyaku, src='en', dest='ja')
      await ctx.send(aaa.text)
-    @commands.command()
-    async def errortest(ctx):
-        prin('test')
     
     
      
