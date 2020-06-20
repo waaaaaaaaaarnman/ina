@@ -8,7 +8,7 @@ class inacog(commands.Cog):
     async def what(self, ctx, what):
      await ctx.send(f'{what}とはなんですか？')
     @commands.command()
-    async def honyaku(self,ctx,honyaku):
+    async def honyaku(self,ctx,*,honyaku):
      from googletrans import Translator
      translator = Translator()
      aaa = translator.translate(honyaku, src='en', dest='ja')
