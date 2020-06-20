@@ -3,7 +3,7 @@ from discord.ext import commands
 class inacog(commands.Cog):
     @commands.command()
     async def ping(self, ctx):
-     await ctx.send('pong!')
+     await ctx.send('pong!{0}'.format(round(commands.latency,1)))
     @commands.command()
     async def what(self, ctx, what):
      await ctx.send(f'{what}とはなんですか？')
