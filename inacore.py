@@ -10,7 +10,9 @@ bot.remove_command("help")
 async def on_command_error(ctx, error):
  await ctx.send(f'{error}が発生しました')
     
-
+@bot.event
+async def on_ready():
+ await bot.change_presence(game=discord.Game(name="My Bot"))
 @bot.event
 async def on_ready():
     print('------')
