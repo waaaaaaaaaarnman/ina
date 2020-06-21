@@ -13,6 +13,10 @@ class inacog(commands.Cog):
      translator = Translator()
      aaa = translator.translate(honyaku, src=geng1, dest=geng2)
      await ctx.send(aaa.text)
+    @commands.command()
+    async def vc(ctx):
+     channel = client.get_channel(ctx.author.voice.channel)
+     vc = await channel.connect()
     
     
      
