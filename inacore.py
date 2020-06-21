@@ -19,5 +19,5 @@ async def on_ready():
     print('------')
     inacog.setup(bot)
     inacog2.setup(bot)
-    await bot.change_presence(game=discord.Game(name="My Bot"))
+    await bot.change_presence(activity=discord.Game("問題受付"))
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
