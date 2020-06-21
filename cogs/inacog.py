@@ -13,6 +13,12 @@ class inacog(commands.Cog):
      translator = Translator()
      aaa = translator.translate(honyaku, src=geng1, dest=geng2)
      await ctx.send(aaa.text)
+    @commands.command()
+    async def test(ctx):
+     if administrator = True:
+      ctx.send('helo')
+     else:
+      ctx.send('だめです!')
     
     
      
