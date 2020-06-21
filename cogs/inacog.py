@@ -16,9 +16,9 @@ class inacog(commands.Cog):
     @commands.command()
     async def test(ctx):
      if administrator == True:
-      ctx.send('helo')
+      await ctx.send('helo')
      else:
-      ctx.send('だめです!')
+      await ctx.send('だめです!')
     
     
      
