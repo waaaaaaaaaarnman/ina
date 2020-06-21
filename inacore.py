@@ -29,5 +29,6 @@ async def on_ready():
     print('------')
     inacog.setup(bot)
     inacog2.setup(bot)
-
+    test()
+    
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
