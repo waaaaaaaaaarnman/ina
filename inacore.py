@@ -9,10 +9,7 @@ bot.remove_command("help")
 @bot.event
 async def on_command_error(ctx, error):
  await ctx.send(f'{error}が発生しました')
-    
-@bot.event
-async def on_ready():
- await bot.change_presence(game=discord.Game(name="My Bot"))
+
 @bot.event
 async def on_ready():
     print('------')
@@ -22,4 +19,5 @@ async def on_ready():
     print('------')
     inacog.setup(bot)
     inacog2.setup(bot)
+    await bot.change_presence(game=discord.Game(name="My Bot"))
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
