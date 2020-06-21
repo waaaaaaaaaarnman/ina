@@ -25,7 +25,7 @@ class inacog(commands.Cog):
      global voich
      # 接続
      if message.content.startswith('/connect'):
-      voich = await discord.VoiceChannel.connect(message.author.voice.channel)
+      voich = await VoiceChannel.connect(message.author.voice.channel)
      # 切断
      if message.content.startswith('/discon'):
       await voich.disconnect()
