@@ -22,6 +22,13 @@ class inacog(commands.Cog):
             return
      if message.content == 'hello':
             await message.channel.send('hello')
+     global voich
+     # 接続
+     if message.content.startswith('/connect'):
+      voich = await discord.VoiceChannel.connect(message.author.voice.channel)
+     # 切断
+     if message.content.startswith('/discon'):
+      await voich.disconnect()
 def setup(bot):
     bot.add_cog(inacog(bot))
 
