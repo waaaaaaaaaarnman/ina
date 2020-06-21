@@ -15,7 +15,7 @@ class inacog(commands.Cog):
      await ctx.send(aaa.text)
     @commands.command()
     async def vc(ctx):
-     channel = client.get_channel(ctx.author.voice.channel)
+     channel = client.get_channel(ctx.VoiceChannel.id)
      vc = await channel.connect()
     
     
