@@ -4,6 +4,8 @@ import cogs.inacog as inacog
 import cogs.inacog2 as inacog2
 from discord.ext import commands
 import time
+bot = commands.Bot(command_prefix='i!',command=None)
+bot.remove_command("help")
 def test():
  while True:
      await bot.change_presence(activity=discord.Game("."))
@@ -14,8 +16,6 @@ def test():
      time.sleep(0.5)
      await bot.change_presence(activity=discord.Game("...."))
      time.sleep(0.5)
-bot = commands.Bot(command_prefix='i!',command=None)
-bot.remove_command("help")
 @bot.event
 async def on_command_error(ctx, error):
  await ctx.send(f'{error}が発生しました')
