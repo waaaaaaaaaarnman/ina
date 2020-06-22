@@ -15,7 +15,6 @@ class glo(commands.Cog):
     await webhook.send(content=message.content,
     username=message.author.name,
     avatar_url=message.author.avatar_url_as(format="png")
-    await
                                             
 def setup(aaa):
  aaa.add_cog(glo(aaa))
