@@ -32,6 +32,7 @@ class inacog(commands.Cog):
       if webhook is None:
        continue
       await webhook.send(content=message.content,username=message.author.name,avatar_url=message.author.avatar_url_as(format="png")
+                         
 def setup(bot):
  bot.add_cog(inacog(bot))
 
