@@ -20,9 +20,6 @@ class inacog(commands.Cog):
     @commands.command()
     async def test(ctx):
         ctx.send(ctx.channel.id)
-     
-    
-     
     @commands.Cog.listener()
     async def on_message(self, message):
      if message.author.bot:
