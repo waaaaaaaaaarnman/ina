@@ -1,5 +1,7 @@
 from discord.ext import commands
 
+global_channels = [721168485681463350,724477146885521490]
+
 class inacog(commands.Cog):
     @commands.command()
     async def ping(self, ctx):
@@ -26,14 +28,14 @@ class inacog(commands.Cog):
             return
      if message.content == 'hello':
             await message.channel.send('hello')
-    await message.delete()
-    global_channels = [721168485681463350,724477146885521490]
-    for channel in global_channels:
-     ch_webhooks = await channel.webhooks()
-     webhook = discord.utils.get(ch_webhooks, name='test_webhook')
-    if webhook is None:
+    for message.channel.id == global_channels:
+     await message.delete()
+     for channel in global_channels:
+      ch_webhooks = await channel.webhooks()
+      webhook = discord.utils.get(ch_webhooks, name='test_webhook')
+     if webhook is None:
       continue
-    await webhook.send(content=message.content,username=message.author.name,avatar_url=message.author.avatar_url_as(format="png")
+     await webhook.send(content=message.content,username=message.author.name,avatar_url=message.author.avatar_url_as(format="png")
 
 def setup(bot):
     bot.add_cog(inacog(bot))
