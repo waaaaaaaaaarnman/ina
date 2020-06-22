@@ -4,7 +4,7 @@ global_channels = [721168485681463350,724477146885521490]
 
 class glo(commands.Cog):
  @commands.Cog.listener()
- async def on_message(message):
+ async def on_message(ctx,message):
   if message.channel.id in global_channels:
    await message.delete()
    for channel in global_channels:
