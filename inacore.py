@@ -2,7 +2,7 @@
 import discord
 import cogs.inacog as inacog
 import cogs.inacog2 as inacog2
-import cogs.glo as glo
+import cogs2.glo as glo
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix='i!',command=None)
