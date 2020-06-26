@@ -7,7 +7,8 @@ class glo(commands.Cog):
  async def on_message(ctx,message):
   if message.channel.id in global_channels:
    for channel in global_channels:
-    messagech = channel
+     messch = client.get_channel(channel)
+     await messch.send(message.content)
     
 
 def setup(bot):
