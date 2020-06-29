@@ -23,5 +23,12 @@ async def on_ready():
     inacog.setup(bot)
     inacog2.setup(bot)
     glo.setup(bot)
+
+@tasks.loop(seconds=1)
+async def loop():
+    channel = bot.get_channel(717604364587630693)
+    await channel.send('時間だよ')  
+
+loop.start()
     
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
