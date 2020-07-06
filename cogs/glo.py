@@ -3,7 +3,7 @@ from discord.ext import commands,tasks
 
 class glo(commands.Cog):
  @tasks.loop(seconds=3)
- async def loop():
+ async def lol():
   await bot.change_presence(activity=discord.Game("tes1"))
   await bot.change_presence(activity=discord.Game("tes2"))
   await bot.change_presence(activity=discord.Game("tes3"))
@@ -13,4 +13,5 @@ class glo(commands.Cog):
 
 def setup(bot):
  bot.add_cog(glo(bot))
- loop.start() 
+ lol.start()
+ print('cogok')
