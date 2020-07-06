@@ -14,7 +14,6 @@ async def on_command_error(ctx, error):
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game("test"))
     print('------')
     print('Logged in as')
     print(bot.user.name)
@@ -24,10 +23,12 @@ async def on_ready():
     inacog2.setup(bot)
     glo.setup(bot)
 
-@tasks.loop(seconds=1)
+@tasks.loop(seconds=3)
 async def loop():
-    channel = bot.get_channel(717604364587630693)
-    await channel.send('時間だよ')  
+ await bot.change_presence(activity=discord.Game("tes1"))
+ await bot.change_presence(activity=discord.Game("tes2"))
+ await bot.change_presence(activity=discord.Game("tes3"))
+ await bot.change_presence(activity=discord.Game("tes4"))
 
 loop.start()
     
