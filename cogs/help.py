@@ -3,14 +3,15 @@ import .data
 
 
 class help(commands.Cog):
- @tasks.loop(seconds=3)
- async def loop():
-  await bot.change_presence(activity=discord.Game("tes1"))
-  await bot.change_presence(activity=discord.Game("tes2"))
-  await bot.change_presence(activity=discord.Game("tes3"))
-  await bot.change_presence(activity=discord.Game("tes4"))
+ async def help(ctx,page):
+  send_page = .data(page)
+  if msg == None:
+   msg = await ctx.send(send_page)
+  else:
+   msg.edit(send_page)
+ 
   
    
 
 def setup(bot):
- bot.add_cog(helq(bot))
+ bot.add_cog(help(bot))
