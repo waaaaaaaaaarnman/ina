@@ -1,15 +1,16 @@
 from discord.ext import commands
 
-global_channels = [721168485681463350,724477146885521490]
 
 class glo(commands.Cog):
- @commands.Cog.listener()
- async def on_message(ctx,message):
-  if message.channel.id in global_channels:
-   for channel in global_channels:
-     messch = bot.get_channel(channel)
-     await messch.send(message.content)
-    
+ @tasks.loop(seconds=3)
+ async def loop():
+  await bot.change_presence(activity=discord.Game("tes1"))
+  await bot.change_presence(activity=discord.Game("tes2"))
+  await bot.change_presence(activity=discord.Game("tes3"))
+  await bot.change_presence(activity=discord.Game("tes4"))
+  
+   
 
 def setup(bot):
  bot.add_cog(glo(bot))
+ loop.start() 
