@@ -1,5 +1,5 @@
 from discord.ext import commands
-import data.data as data_file
+import datas.data as data_file
 
 
 class help(commands.Cog):
