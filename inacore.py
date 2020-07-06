@@ -3,7 +3,8 @@ import discord
 import cogs.inacog as inacog
 import cogs.inacog2 as inacog2
 import cogs.glo as glo
-from discord.ext import commands,tasks
+from discord.ext import commands
+from discord.ext import tasks
 
 bot = commands.Bot(command_prefix='i!',command=None)
 bot.remove_command("help")
