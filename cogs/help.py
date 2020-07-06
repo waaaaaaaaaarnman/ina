@@ -1,4 +1,5 @@
 from discord.ext import commands
+import .data
 
 
 class help(commands.Cog):
