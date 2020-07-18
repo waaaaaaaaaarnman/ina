@@ -2,6 +2,5 @@ discord.py[voice] > requirements.txt
 google > requirements.txt
 googletrans > requirements.txt
 pynacl > requirements.txt
-libffi-dev > requirements.txt
 ffmpeg > requirements.txt
 youtube_dl > requirements.txt
