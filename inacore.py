@@ -4,6 +4,9 @@ from discord.ext import commands
 
 bot = commands.Bot(command_prefix='i!')
 
+if not discord.opus.is_loaded(): 
+    discord.opus.load_opus("heroku-buildpack-libopus")
+
 @bot.command()
 async def ping(ctx):
  await ctx.send(f'pong!{bot.latency}')
