@@ -23,19 +23,15 @@ async def on_ready():
     a.close()
 @bot.event
 async def on_message(message):
-    if message.author.bot:
-        return
-    GLOBAL_CH_NAME = "hoge-global" # グローバルチャットのチャンネル名
-    GLOBAL_WEBHOOK_NAME = "hoge-webhook" # グローバルチャットのWebhook名
-
-    if message.channel.name == GLOBAL_CH_NAME:
-        # hoge-globalの名前をもつチャンネルに投稿されたので、メッセージを転送する
+    globallist = open('datas/global.txt','r')
+    for list in globallist:
+     global_list = list()
+     globallist.append(list.split())
+     globallist.close()
+    GLOBAL_WEBHOOK_NAME = "ina_global_webhook"
+    if message.channel.name == global_list:
         await message.delete()
-
-        channels = bot.get_all_channels()
-        global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
-
-        for channel in global_channels:
+        for channel in global_list:
             ch_webhooks = await channel.webhooks()
             webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
             if webhook == None:
@@ -54,6 +50,10 @@ async def test(ctx,test):
  for b in a:
   await ctx.send(b.split())
  a.close()
+ @bot.command
+ async def global_on(ctx):
+  ac = open('datas/global.txt','w')
+  ac.write(
  
  
 
