@@ -38,10 +38,6 @@ async def on_message(message):
         for channel in global_channels:
             ch_webhooks = await channel.webhooks()
             webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
-
-            if webhook is None:
-                # そのチャンネルに hoge-webhook というWebhookは無かったので無視
-                continue
             await webhook.send(content=message.content,
                 username=message.author.name,
                 avatar_url=message.author.avatar_url_as(format="png"))
