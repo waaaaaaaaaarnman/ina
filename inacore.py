@@ -53,7 +53,9 @@ async def test(ctx,test):
  @bot.command
  async def global_on(ctx):
   ac = open('datas/global.txt','w')
-  ac.write(
+  ac.write(ctx.channel.id)
+  ac.close(
+  await ctx.send(f'追加ができました！id:{ctx.channel.id}')
  
  
 
