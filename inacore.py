@@ -6,15 +6,15 @@ bot = commands.Bot(command_prefix='i!')
 
 player = None
 voice = None
-global player
-global voice
 
 @bot.command()
 async def join(ctx,message):
+ global voice
  voice = await bot.join_voice_channel(message.author.voice_channel)
 
 @bot.command()
-async def play(ctx,message):
+async def play(ctx,message,youtube_url):
+ global player
  player = await voice.create_ytdl_player(youtube_url)
  player.start()
 
