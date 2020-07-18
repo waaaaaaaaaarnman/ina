@@ -20,6 +20,7 @@ async def on_ready():
     a = open('datas/config.txt','r')
     for b in a:
      print(b)
+    a.close()
     
 @bot.command()
 async def test(ctx):
