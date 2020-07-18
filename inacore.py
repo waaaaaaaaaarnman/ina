@@ -26,7 +26,7 @@ async def on_ready():
 async def test(ctx,test):
  await ctx.send('hi!')
  a = open('datas/config.txt','a')
- a.write(f'{test}\n')
+ a.write(f'\n{test}')
  a.close()
  a = open('datas/config.txt','r')
  for b in a:
