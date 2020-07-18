@@ -25,7 +25,7 @@ async def on_ready():
 @bot.command()
 async def test(ctx,test):
  await ctx.send('hi!')
- a = open('datas/config.txt','w')
+ a = open('datas/config.txt','a')
  a.write(f'{test}\n')
  a.close()
  a = open('datas/config.txt','r')
