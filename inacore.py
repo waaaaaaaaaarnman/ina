@@ -22,8 +22,7 @@ async def on_ready():
      print(b.split())
     a.close()
 @bot.event
-async def on_message(ctx):
-    message = ctx.message
+async def on_message(message):
     if message.author.bot:
         return
     GLOBAL_CH_NAME = "hoge-global" # グローバルチャットのチャンネル名
