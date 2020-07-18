@@ -6,7 +6,8 @@ bot = commands.Bot(command_prefix='i!')
 
 player = None
 voice = None
-global player,voice
+global player
+global voice
 
 @bot.command()
 async def join(ctx,message):
