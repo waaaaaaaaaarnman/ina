@@ -6,7 +6,7 @@ import time
 
 bot = commands.Bot(command_prefix='i!')
 
-@task.loop(seconds=40)
+@tasks.loop(seconds=40)
 async def loop():
  await bot.change_presence(activity=discord.Game("てすと"))
  time.sleep(10)
