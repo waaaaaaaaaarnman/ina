@@ -1,8 +1,21 @@
 #coding: utf-8
 import discord
 from discord.ext import commands
+from discord.ext import tasks
+import time
 
 bot = commands.Bot(command_prefix='i!')
+
+@task.loop(seconds=40)
+async def loop():
+ await bot.change_presence(activity=discord.Game("てすと"))
+ time.sleep(10)
+ await bot.change_presence(activity=discord.Game("てすとと"))
+ time.sleep(10)
+ await bot.change_presence(activity=discord.Game("てすととと"))
+ time.sleep(10)
+ await bot.change_presence(activity=discord.Game("てすとととと"))
+ time.sleep(10)
 
 @bot.event
 async def on_ready():
@@ -11,6 +24,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+    loop.start()
     
 @bot.command()
 async def ping(ctx):
