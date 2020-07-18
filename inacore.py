@@ -25,5 +25,7 @@ async def on_ready():
 @bot.command()
 async def test(ctx):
  await ctx.send('hi!')
+ a = open('datas/config.txt','w')
+ 
 
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
