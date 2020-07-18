@@ -32,7 +32,7 @@ async def on_message(message):
         # hoge-globalの名前をもつチャンネルに投稿されたので、メッセージを転送する
         await message.delete()
 
-        channels = client.get_all_channels()
+        channels = bot.get_all_channels()
         global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
 
         for channel in global_channels:
