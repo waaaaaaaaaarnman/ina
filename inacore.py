@@ -6,6 +6,27 @@ bot = commands.Bot(command_prefix='i!')
 
 if not discord.opus.is_loaded(): 
     discord.opus.load_opus("heroku-buildpack-libopus")
+player = None
+voice = None
+global player,voice
+
+@bot.command()
+async def join(ctx,message):
+ voice = await bot.join_voice_channel(message.author.voice_channel)
+
+@bot.command()
+async def play(ctx,message):
+ player = await voice.create_ytdl_player(youtube_url)
+ player.start()
+
+@bot.command()
+async def stop(ctx,message):
+ player.stop()
+
+@bot.command()
+async def dc(ctx,message):
+ await voice.disconnect()
+ voice = None
 
 @bot.command()
 async def ping(ctx):
