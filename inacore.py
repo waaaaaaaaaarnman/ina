@@ -6,6 +6,10 @@ import time
 
 bot = commands.Bot(command_prefix='i!')
 
+@bot.command()
+async def ping(ctx):
+ await ctx.send(f'pong!{bot.latency}')
+ 
 @tasks.loop(seconds=40)
 async def loop():
  await bot.change_presence(activity=discord.Game("てすと"))
@@ -25,9 +29,5 @@ async def on_ready():
     print(bot.user.id)
     print('------')
     loop.start()
-    
-@bot.command()
-async def ping(ctx):
- await ctx.send(f'pong!{bot.latency}')
 
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
