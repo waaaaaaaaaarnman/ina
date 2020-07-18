@@ -2,14 +2,12 @@
 import discord
 from discord.ext import commands
 from discord.ext import tasks
-
 bot = commands.Bot(command_prefix='i!',command=None)
 bot.remove_command("help")
 
 @bot.event
 async def on_command_error(ctx, error):
  await ctx.send(f'{error}が発生しました')
-
 @bot.event
 async def on_ready():
     print('------')
@@ -40,6 +38,7 @@ async def on_message(message):
                 username=message.author.name,
                 avatar_url=message.author.avatar_url_as(format="png"))
     
+    
 @bot.command()
 async def test(ctx,test):
  await ctx.send('hi!')
@@ -50,8 +49,8 @@ async def test(ctx,test):
  for b in a:
   await ctx.send(b.split())
  a.close()
- @bot.command
- async def global_on(ctx):
+@bot.command
+async def global_on(ctx):
   ac = open('datas/global.txt','w')
   ac.write(ctx.channel.id)
   ac.close(
