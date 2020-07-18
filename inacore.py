@@ -21,41 +21,27 @@ async def on_ready():
     a.close()
 @bot.event
 async def on_message(message):
-    globallist = open('datas/global.txt','r')
-    for list in globallist:
-     global_list = list()
-     globallist.append(list.split())
-     globallist.close()
-    GLOBAL_WEBHOOK_NAME = "ina_global_webhook"
-    if message.channel.name == global_list:
+    if message.author.bot:
+        return
+    GLOBAL_CH_NAME = "伊奈グローバル" 
+    GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
+
+    if message.channel.name == GLOBAL_CH_NAME:
         await message.delete()
-        for channel in global_list:
+        channels = bot.get_all_channels()
+        global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
+        for channel in global_channels:
             ch_webhooks = await channel.webhooks()
             webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
-            if webhook == None:
-             await channel.create_webhook(name=GLOBAL_WEBHOOK_NAME)
+
+            if webhook is None:
+                await channel.create_webhook(name=GLOBAL_WEBHOOK_NAME)
             await webhook.send(content=message.content,
                 username=message.author.name,
                 avatar_url=message.author.avatar_url_as(format="png"))
-    
-    
+
 @bot.command()
-async def test(ctx,test):
- await ctx.send('hi!')
- a = open('datas/config.txt','a')
- a.write(f'\n{test}')
- a.close()
- a = open('datas/config.txt','r')
- for b in a:
-  await ctx.send(b.split())
- a.close()
-@bot.command
-async def global_on(ctx):
-  ac = open('datas/global.txt','w')
-  ac.write(ctx.channel.id)
-  ac.close(
-  await ctx.send(f'追加ができました！id:{ctx.channel.id}')
- 
- 
+async def ping(ctx):
+ await ctx.send(f'pong!{bot.latency}')
 
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
