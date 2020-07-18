@@ -4,29 +4,6 @@ from discord.ext import commands
 
 bot = commands.Bot(command_prefix='i!')
 
-player = None
-voice = None
-
-@bot.command()
-async def join(ctx,message):
- global voice
- voice = await bot.join_voice_channel(message.author.voice_channel)
-
-@bot.command()
-async def play(ctx,message,youtube_url):
- global player
- player = await voice.create_ytdl_player(youtube_url)
- player.start()
-
-@bot.command()
-async def stop(ctx,message):
- player.stop()
-
-@bot.command()
-async def dc(ctx,message):
- await voice.disconnect()
- voice = None
-
 @bot.command()
 async def ping(ctx):
  await ctx.send(f'pong!{bot.latency}')
