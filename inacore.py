@@ -9,10 +9,6 @@ async def ping(ctx):
  await ctx.send(f'pong!{bot.latency}')
 
 @bot.event
-async def on_command_error(ctx, error):
- await ctx.send(f'{error}が発生しました')
-
-@bot.event
 async def on_ready():
     print('------')
     print('Logged in as')
@@ -23,7 +19,7 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     if message.author.bot:
-        return
+     return
     GLOBAL_CH_NAME = "伊奈グローバル" 
     GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
     if message.channel.name == GLOBAL_CH_NAME:
