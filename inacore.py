@@ -19,13 +19,20 @@ async def on_ready():
     print('------')
     a = open('datas/config.txt','r')
     for b in a:
-     print(b)
+     print(b.split())
     a.close()
     
 @bot.command()
-async def test(ctx):
+async def test(ctx,test):
  await ctx.send('hi!')
  a = open('datas/config.txt','w')
+ a.write(f'{test}\n')
+ a.close()
+ a = open('datas/config.txt','r')
+ for b in a:
+  await ctx.send(b.split())
+ a.close()
+ 
  
 
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
