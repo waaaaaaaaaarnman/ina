@@ -17,5 +17,8 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+@bot.command()
+async def test(ctx):
+ await ctx.send('hi!')
 
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
