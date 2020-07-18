@@ -1,13 +1,17 @@
 #coding: utf-8
 import discord
 from discord.ext import commands
-bot = commands.Bot(command_prefix='i!',command=None)
+
+bot = commands.Bot(command_prefix='i!')
+
 @bot.command()
 async def ping(ctx):
  await ctx.send(f'pong!{bot.latency}')
+
 @bot.event
 async def on_command_error(ctx, error):
  await ctx.send(f'{error}が発生しました')
+
 @bot.event
 async def on_ready():
     print('------')
@@ -15,6 +19,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+
 @bot.event
 async def on_message(message):
     if message.author.bot:
@@ -33,4 +38,5 @@ async def on_message(message):
             await webhook.send(content=message.content,
                 username=message.author.name,
                 avatar_url=message.author.avatar_url_as(format="png"))
+
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
