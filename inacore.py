@@ -39,7 +39,7 @@ async def on_message(message):
             ch_webhooks = await channel.webhooks()
             webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
             if webhook == None:
-             await create_webhook(GLOBAL_WEBHOOK_NAME)
+             await channel.create_webhook(GLOBAL_WEBHOOK_NAME)
             await webhook.send(content=message.content,
                 username=message.author.name,
                 avatar_url=message.author.avatar_url_as(format="png"))
