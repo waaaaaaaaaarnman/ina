@@ -17,6 +17,10 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+    a = open('datas/config.txt','r')
+    for b in a:
+     print(b)
+    
 @bot.command()
 async def test(ctx):
  await ctx.send('hi!')
