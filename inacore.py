@@ -1,9 +1,10 @@
 #coding: utf-8
 import discord
 from discord.ext import commands
-from discord.ext import tasks
 bot = commands.Bot(command_prefix='i!',command=None)
-bot.remove_command("help")
+@bot.command()
+async def ping(ctx):
+ await ctx.send(f'pong!{bot.latency}')
 @bot.event
 async def on_command_error(ctx, error):
  await ctx.send(f'{error}が発生しました')
@@ -32,7 +33,4 @@ async def on_message(message):
             await webhook.send(content=message.content,
                 username=message.author.name,
                 avatar_url=message.author.avatar_url_as(format="png"))
-@bot.command()
-async def ping(ctx):
- await ctx.send(f'pong!{bot.latency}')
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
