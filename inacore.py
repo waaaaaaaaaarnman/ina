@@ -1,12 +1,15 @@
 #coding: utf-8
 import discord
 from discord.ext import commands
+from discord.ext import tasks
 
 bot = commands.Bot(command_prefix='i!')
+
 #pingコマンド
 @bot.command()
 async def ping(ctx):
  await ctx.send(f'pong! took:{bot.latency}ms')
+#ステータス欄
 @tasks.loop(seconds=40)
 async def loop():
  await bot.change_presence(activity=discord.Game("てすと1"))
@@ -17,6 +20,7 @@ async def loop():
  time.sleep(10)
  await bot.change_presence(activity=discord.Game("てすと4"))
  time.sleep(10)
+#機能時のログ
 @bot.event
 async def on_ready():
     print('------')
