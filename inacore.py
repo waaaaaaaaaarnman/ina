@@ -33,6 +33,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    loop.start() 
+    loop.start()
+    await bot.process_commands()
 
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
