@@ -26,5 +26,6 @@ class inacog(commands.Cog):
                          
 def setup(bot):
     bot.add_cog(inacog(bot))
+    print('testcog load ok')
 
     
