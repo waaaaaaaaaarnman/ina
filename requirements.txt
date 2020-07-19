@@ -1,3 +1,2 @@
 discord.py[voice] > requirements.txt
-google > requirements.txt
 googletrans > requirements.txt
