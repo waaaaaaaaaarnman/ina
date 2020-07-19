@@ -2,6 +2,7 @@
 
 import discord
 from discord.ext import commands
+import cogs.inacog as inacog
 
 bot = commands.Bot(command_prefix='i!')
 
@@ -22,6 +23,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+    inacog.setup(bot)
     await bot.change_presence(activity=discord.Game("てすと"))
 
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
