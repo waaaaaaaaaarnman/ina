@@ -1,9 +1,12 @@
 from discord.ext import commands
 
 class inacog(commands.Cog):
+    @bot.command()
+    async def ping(ctx):
+     await ctx.send(f'pong! took:{bot.latency}ms')
     @commands.command()
-    async def pin2g(ctx):
-     await ctx.send(f'pong!{bot.latency}')
+    async def search(ctx,*,keyword):
+     await ctx.send(f'https://www.google.com/search?q={keyword}')
     @commands.command()
     async def what(ctx, what):
      await ctx.send(f'{what}とはなんですか？')
