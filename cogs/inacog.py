@@ -1,7 +1,7 @@
 from discord.ext import commands
 
 class inacog(commands.Cog):
-    @bot.command()
+    @commands.command()
     async def ping(ctx):
      await ctx.send(f'pong! took:{bot.latency}ms')
     @commands.command()
