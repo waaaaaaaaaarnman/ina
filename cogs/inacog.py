@@ -2,10 +2,10 @@ from discord.ext import commands
 
 class inacog(commands.Cog):
     @commands.command()
-    async def ping(self, ctx):
-     await ctx.send('pong!{0}'.format(round(commands.latency,1)))
+    async def ping(ctx):
+     await ctx.send(f'pong!{bot.latency}')
     @commands.command()
-    async def what(self, ctx, what):
+    async def what(ctx, what):
      await ctx.send(f'{what}とはなんですか？')
     @commands.command()
     async def honyaku(self,ctx,geng1,geng2,*,honyaku):
