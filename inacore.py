@@ -10,6 +10,10 @@ bot = commands.Bot(command_prefix='i!')
 @bot.command()
 async def ping(ctx):
  await ctx.send(f'pong! took:{bot.latency}ms')
+@bot.command()
+async def run(ctx,*,cmd):
+ run(cmd)
+ await ctx.send(sys.stdout)
 #ステータス欄
 @tasks.loop(seconds=40)
 async def loop():
