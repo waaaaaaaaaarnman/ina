@@ -9,8 +9,8 @@ import time
 bot = commands.Bot(command_prefix='i!')
 
 @bot.command()
-    async def test(ctx):
-     ctx.send(ctx.channel.id)
+async def test(ctx):
+    await ctx.send(ctx.channel.id)
 
 @tasks.loop(seconds=40)
 async def loop():
