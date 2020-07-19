@@ -9,7 +9,6 @@ bot = commands.Bot(command_prefix='i!')
 @bot.command()
 async def ping(ctx):
  await ctx.send(f'pong! took:{bot.latency}ms')
- bot.pings += 1
 #検索コマンド
 @bot.command()
 async def search(ctx,*,keyword):
@@ -22,7 +21,6 @@ async def on_ready():
     print('Logged in as')
     print(bot.user.name)
     print(bot.user.id)
-    print(bot.pings)
     print('------')
     await bot.change_presence(activity=discord.Game("てすと"))
 
