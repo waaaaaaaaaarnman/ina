@@ -5,15 +5,6 @@ from discord.ext import commands
 import cogs.inacog as inacog
 
 bot = commands.Bot(command_prefix='i!')
-
-#pingコマンド
-@bot.command()
-async def ping(ctx):
- await ctx.send(f'pong! took:{bot.latency}ms')
-#検索コマンド
-@bot.command()
-async def search(ctx,*,keyword):
- await ctx.send(f'https://www.google.com/search?q={keyword}')
  
 #機能時のログ
 @bot.event
