@@ -3,11 +3,20 @@ import discord
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix='i!')
-
+#pingコマンド
 @bot.command()
 async def ping(ctx):
- await ctx.send(f'pong!{bot.latency}')
-
+ await ctx.send(f'pong! took:{bot.latency}ms')
+@tasks.loop(seconds=40)
+async def loop():
+ await bot.change_presence(activity=discord.Game("てすと1"))
+ time.sleep(10)
+ await bot.change_presence(activity=discord.Game("てすと2"))
+ time.sleep(10)
+ await bot.change_presence(activity=discord.Game("てすと3"))
+ time.sleep(10)
+ await bot.change_presence(activity=discord.Game("てすと4"))
+ time.sleep(10)
 @bot.event
 async def on_ready():
     print('------')
@@ -15,6 +24,6 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    await bot.change_presence(activity=discord.Game("てすと"))
+    loop.start() 
 
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
