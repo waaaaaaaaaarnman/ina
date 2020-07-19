@@ -2,7 +2,6 @@
 
 import discord
 from discord.ext import commands
-import sys
 
 bot = commands.Bot(command_prefix='i!')
 
@@ -10,10 +9,12 @@ bot = commands.Bot(command_prefix='i!')
 @bot.command()
 async def ping(ctx):
  await ctx.send(f'pong! took:{bot.latency}ms')
-@bot.command()
-async def run(ctx,*,cmd):
- run(cmd)
- await ctx.send(sys.stdout)
+ bot.pings += 1
+#検索コマンド
+@bot.commands()
+async def search(ctx,*,keyword):
+ await ctx.send(f'https://www.google.com/search?q={keyword}')
+ 
 #機能時のログ
 @bot.event
 async def on_ready():
@@ -21,7 +22,8 @@ async def on_ready():
     print('Logged in as')
     print(bot.user.name)
     print(bot.user.id)
+    print(bot.pings)
     print('------')
-    await bot.change_presence(activity=discord.Game("てすと1"))
+    await bot.change_presence(activity=discord.Game("てすと"))
 
 bot.run('NzE3NTkwOTc2MTU1MjIyMDI4.Xu2_bw.MD4oJ_ZuFNYljkLsJiZi3zxMTy4')
