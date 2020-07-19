@@ -11,7 +11,7 @@ async def ping(ctx):
  await ctx.send(f'pong! took:{bot.latency}ms')
  bot.pings += 1
 #検索コマンド
-@bot.commands()
+@bot.command()
 async def search(ctx,*,keyword):
  await ctx.send(f'https://www.google.com/search?q={keyword}')
  
