@@ -33,4 +33,4 @@ async def on_ready():
     print('------')
     inacog.setup(bot)
 
-bot.run(os.environ["TOKEN"])
+bot.run(os.environ["BOT_TOKEN"])
