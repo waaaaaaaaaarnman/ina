@@ -13,16 +13,6 @@ bot = commands.Bot(command_prefix='i!')
 async def test(ctx):
     await ctx.send(ctx.channel.id)
 
-@tasks.loop(seconds=40)
-async def loop():
- await bot.change_presence(activity=discord.Game("てすと"))
- time.sleep(10)
- await bot.change_presence(activity=discord.Game("てすと"))
- time.sleep(10)
- await bot.change_presence(activity=discord.Game("てすと"))
- time.sleep(10)
- await bot.change_presence(activity=discord.Game("てすと"))
- time.sleep(10)
 #機能時のログ
 @bot.event
 async def on_ready():
