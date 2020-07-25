@@ -1,4 +1,5 @@
-from discord.ext import commands
+from discord.ext import commands,tasks
+import time
 
 class inacog(commands.Cog):
     @commands.command()
@@ -13,11 +14,21 @@ class inacog(commands.Cog):
      from googletrans import Translator
      translator = Translator()
      detect = translator.detect(honyaku)
-     ans = translator.translate(honyaku.lang, src=detect, dest=jp)
+     ans = translator.translate(honyaku, src=detect, dest=jp)
      await ctx.send(ans.text)
-                         
+     @tasks.loop(seconds=40)
+     async def loop():
+      await bot.change_presence(activity=discord.Game(f"導入サーバー数:{len(self.bot.guilds)}"))
+      time.sleep(10)
+      await bot.change_presence(activity=discord.Game("てすと"))
+      time.sleep(10)
+      await bot.change_presence(activity=discord.Game("てすと"))
+      time.sleep(10)
+      await bot.change_presence(activity=discord.Game("てすと"))
+                 
 def setup(bot):
     bot.add_cog(inacog(bot))
+    loop.start()
     print('testcog load ok')
 
     
