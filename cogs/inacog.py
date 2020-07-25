@@ -21,17 +21,6 @@ class inacog(commands.Cog):
 
 def setup(bot):
     bot.add_cog(inacog(bot))
-     @tasks.loop(seconds=40)
-     async def loop():
-      await bot.change_presence(activity=discord.Game(f"導入サーバー数:{len(self.bot.guilds)}"))
-      time.sleep(10)
-      await bot.change_presence(activity=discord.Game("てすと"))
-      time.sleep(10)
-      await bot.change_presence(activity=discord.Game("てすと"))
-      time.sleep(10)
-      await bot.change_presence(activity=discord.Game("てすと"))
-      time.sleep(10)          
-    loop.start()
     print('testcog load ok')
 
     
