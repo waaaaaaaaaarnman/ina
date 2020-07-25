@@ -2,6 +2,8 @@ from discord.ext import commands,tasks
 import time
 
 class inacog(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
     @commands.command()
     async def ping(self,ctx):
      await ctx.send(f'pong! took:{self.bot.latency}ms')
