@@ -18,6 +18,9 @@ class inacog(commands.Cog):
      detect = translator.detect(honyaku)
      ans = translator.translate(honyaku, src=detect, dest=jp)
      await ctx.send(ans.text)
+
+def setup(bot):
+    bot.add_cog(inacog(bot))
      @tasks.loop(seconds=40)
      async def loop():
       await bot.change_presence(activity=discord.Game(f"導入サーバー数:{len(self.bot.guilds)}"))
@@ -27,9 +30,7 @@ class inacog(commands.Cog):
       await bot.change_presence(activity=discord.Game("てすと"))
       time.sleep(10)
       await bot.change_presence(activity=discord.Game("てすと"))
-                 
-def setup(bot):
-    bot.add_cog(inacog(bot))
+      time.sleep(10)          
     loop.start()
     print('testcog load ok')
 
