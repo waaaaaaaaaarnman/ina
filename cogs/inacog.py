@@ -1,5 +1,6 @@
 from discord.ext import commands,tasks
 import time
+import discord
 
 class inacog(commands.Cog):
     def __init__(self, bot):
