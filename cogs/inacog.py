@@ -7,7 +7,7 @@ class inacog(commands.Cog):
         self.bot = bot
     @commands.command()
     async def ping(self,ctx):
-     await ctx.send(f'pong! took:{self.bot.latency.round}ms')
+     await ctx.send(f'pong! took:{self.bot.latency}ms')
     @commands.command()
     async def search(self,ctx,*,key):
      keyword = key.replace(' ','+')
@@ -28,7 +28,7 @@ class inacog(commands.Cog):
       pollans = f'絵文字:{reaction.emoji} カウント:{reaction.count}'
       await ctx.send(pollans)
     @commands.Cog.listener()
-    async def on_message(self,message):
+    async def on_message(ctx,message,self):
      for ch in global_ch_list:
       if message.channel.id == ch:     
        await message.delete()
