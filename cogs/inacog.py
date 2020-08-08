@@ -13,7 +13,7 @@ class inacog(commands.Cog):
      keyword = key.replace(' ','+')
      await ctx.send(f'https://www.google.com/search?q={keyword}')
     @commands.command()
-    async def ank(ctx,main,sub,*,emoji):
+    async def ank(self,ctx,main,sub,*,emoji):
      ankmsgm = discord.Embed(title=main,description=sub)
      ankmsg = await ctx.send(embed=ankmsgm)
      ankid.edit(ankmsgm.add_field(name="以下のコマンドで集計:",value=f't!poll {ankmsg.id}'))
@@ -21,14 +21,14 @@ class inacog(commands.Cog):
      for rea in emojisp:
       await ankmsg.add_reaction(rea)
     @commands.command()
-    async def poll(ctx,id):
+    async def poll(self,ctx,id):
      poll = await ctx.fetch_message(int(id))
      reactions = poll.reactions
      for reaction in reactions:
       pollans = f'絵文字:{reaction.emoji} カウント:{reaction.count}'
       await ctx.send(pollans)
     @commands.Cog.listener()
-    async def on_message(message):
+    async def on_message(self,ctx,message):
      for ch in global_ch_list:
       if message.channel.id == ch:     
        await message.delete()
