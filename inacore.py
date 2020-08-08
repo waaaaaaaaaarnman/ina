@@ -3,6 +3,7 @@
 import discord
 from discord.ext import commands,tasks
 import cogs.inacog as inacog
+impnrt cogs.status as status
 import os
 import time
 
@@ -27,6 +28,6 @@ async def on_ready():
     print(bot.user.id)
     print('------')
     inacog.setup(bot)
+    status.setup(bot)
 
-loop.start()
 bot.run(os.environ["BOT_TOKEN"])
