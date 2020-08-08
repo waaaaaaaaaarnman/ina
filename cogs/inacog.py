@@ -16,7 +16,6 @@ class inacog(commands.Cog):
     async def ank(self,ctx,main,sub,*,emoji):
      ankmsgm = discord.Embed(title=main,description=sub)
      ankmsg = await ctx.send(embed=ankmsgm)
-     ankmsg.edit(ankmsgm.add_field(name="以下のコマンドで集計:",value=f't!poll {ankmsg.id}'))
      emojisp = emoji.split()
      for rea in emojisp:
       await ankmsg.add_reaction(rea)
