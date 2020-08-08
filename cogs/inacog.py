@@ -28,7 +28,7 @@ class inacog(commands.Cog):
       pollans = f'絵文字:{reaction.emoji} カウント:{reaction.count}'
       await ctx.send(pollans)
     @commands.Cog.listener()
-    async def on_message(self,message,ctx):
+    async def on_message(self,message):
      for ch in global_ch_list:
       if message.channel.id == ch:     
        await message.delete()
