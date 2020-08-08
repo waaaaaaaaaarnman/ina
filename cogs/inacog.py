@@ -7,7 +7,7 @@ class inacog(commands.Cog):
         self.bot = bot
     @commands.command()
     async def ping(self,ctx):
-     await ctx.send(f'pong! took:{self.bot.latency}ms')
+     await ctx.send(f'pong! took:{self.bot.latency.round}ms')
     @commands.command()
     async def search(self,ctx,*,key):
      keyword = key.replace(' ','+')
@@ -16,7 +16,7 @@ class inacog(commands.Cog):
     async def ank(self,ctx,main,sub,*,emoji):
      ankmsgm = discord.Embed(title=main,description=sub)
      ankmsg = await ctx.send(embed=ankmsgm)
-     ankid.edit(ankmsgm.add_field(name="以下のコマンドで集計:",value=f't!poll {ankmsg.id}'))
+     ankmsg.edit(ankmsgm.add_field(name="以下のコマンドで集計:",value=f't!poll {ankmsg.id}'))
      emojisp = emoji.split()
      for rea in emojisp:
       await ankmsg.add_reaction(rea)
