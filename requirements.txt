@@ -1,2 +1,1 @@
-discord.py[voice] > requirements.txt
-googletrans > requirements.txt
+discord.py[voice] = 1.4
