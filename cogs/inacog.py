@@ -24,14 +24,14 @@ class inacog(commands.Cog):
     @commands.command()
     async def help(self,ctx):
        helpembed = discord.Embed(title="Help",description="コマンドのヘルプだぜぇ") 
-       helpembed.add_field(name="ping",value="Ping値を測定できます。")
-       helpembed.add_field(name="search <検索したいワード(スペースOK)>",value="Googleの検索ができます。")
-       helpembed.add_field(name="update_notice",value="アップデート情報のチャンネルをフォローできます。")
-       helpembed.add_field(name="global_chat",value="グローバルチャットに接続できます。")
+       helpembed.add_field(value="ping:Ping値を測定できます。")
+       helpembed.add_field(value="search <検索したいワード(スペースOK)>:Googleの検索ができます。")
+       helpembed.add_field(value="update_notice:アップデート情報のチャンネルをフォローできます。")
+       helpembed.add_field(value="global_chat:グローバルチャットに接続できます。")
        helpembed.add_field(value="[公式サバはこちら](https://discord.gg/74ZtTMK)")
        await ctx.send(embed=helpembed)
 def setup(bot):
     bot.add_cog(inacog(bot))
-    print('testcog load ok')
+    print('TestCog Loaded!')
 
    
