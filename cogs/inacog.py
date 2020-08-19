@@ -34,6 +34,13 @@ class inacog(commands.Cog):
         helpembed.add_field(name="公式サイト",value="[公式サイトはこちら](https://waaaaaaaaaarnman.github.io/ina/top/)")
         await ctx.send(embed=helpembed)
     @commands.command()
+    async def about(self,ctx):
+        about = discord.Embed(title='about',description='このボットについてです。')
+        about.add_field(name="作った人",value="Kaede_728#8140")
+        about.add_field(name="ping",value=round(self.bot.latency,2))
+        about.add_field(name="人数",value=len(self.bot.guilds))
+        about.add_field(name="サーバー数",value=
+    @commands.command()
     async def bugandidea(self,ctx,bugandidea):
      await self.bot.get_channel(745601986669576192).send(bugandidea)
      await ctx.send('バグ報告又はアイデアの送信が完了しました!')
