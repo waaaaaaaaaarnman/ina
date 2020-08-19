@@ -7,6 +7,9 @@ import cogs.globalch as globa
 import os
 bot = commands.Bot(command_prefix='i!')
 @bot.event
+async def on_command_error(ctx,error):
+ await ctx.send(f'エラーが発生しました。エラー:{error}')
+@bot.event
 async def on_ready():
     print('------')
     print('Logged in as')
