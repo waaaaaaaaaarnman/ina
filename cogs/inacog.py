@@ -21,7 +21,7 @@ class inacog(commands.Cog):
       await ctx.send('グローバルチャットに接続できました!')
      else:
       await ctx.send('ina-globalというチャンネル名をつけてもう一度試してね!')
-    @command.command()
+    @commands.command()
     async def help(self,ctx):
        helpembed = discord.Embed(title="Help",description="コマンドのヘルプだぜぇ") 
        helpembed.add_field(name="ping",value="Ping値を測定できます。")
