@@ -1,6 +1,6 @@
 from discord.ext import commands
 import discord
-class global(commands.Cog):
+class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.Cog.listener()
@@ -22,5 +22,5 @@ class global(commands.Cog):
                                username=message.author.name,
                                avatar_url=message.author.avatar_url_as(format="png"))
 def setup(bot):
-    bot.add_cog(global(bot))
+    bot.add_cog(globalch(bot))
     print('Global Loaded!')
