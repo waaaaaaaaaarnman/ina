@@ -24,13 +24,13 @@ class inacog(commands.Cog):
     @commands.command()
     async def help(self,ctx):
        await ctx.send('''**Help**
-                         コマンドのヘルプだぜぇ
-                         ping:Ping値を測定できます。 
-                         search <検索したいワード(スペースOK)>:Googleの検索ができます。
-                         update_notice:アップデート情報のチャンネルをフォローできます。
-                         global_chat:グローバルチャットに接続できます。
-                         公式サバはこちら:https://discord.gg/74ZtTMK
-                         ~~embed使いたかったのに謎エラーで使えなかった。起訴~~''')
+コマンドのヘルプだぜぇ
+ping:Ping値を測定できます。 
+search <検索したいワード(スペースOK)>:Googleの検索ができます。
+update_notice:アップデート情報のチャンネルをフォローできます。
+global_chat:グローバルチャットに接続できます。
+公式サバはこちら:https://discord.gg/74ZtTMK
+~~embed使いたかったのに謎エラーで使えなかった。起訴~~''')
        
 def setup(bot):
     bot.add_cog(inacog(bot))
