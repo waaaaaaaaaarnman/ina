@@ -30,6 +30,7 @@ class inacog(commands.Cog):
         helpembed.add_field(name="global_chat",value="グローバルチャットに接続できます。")
         helpembed.add_field(name="bug",value="バグ報告ができます。")
         helpembed.add_field(name="公式サバ",value="[公式サバはこちら](https://discord.gg/74ZtTMK)")
+        helpembed.add_field(name="公式サイト",value="[公式サイトはこちら](https://waaaaaaaaaarnman.github.io/ina/top/)")
         await ctx.send(embed=helpembed)
     @commands.command()
     async def bug(self,ctx,bug):
