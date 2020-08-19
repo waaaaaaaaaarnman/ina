@@ -30,7 +30,10 @@ class inacog(commands.Cog):
         helpembed.add_field(name="global_chat",value="グローバルチャットに接続できます。")
         helpembed.add_field(name="公式サバ",value="[公式サバはこちら](https://discord.gg/74ZtTMK)")
         await ctx.send(embed=helpembed)
-       
+    @commands.command()
+    async def bug(self,ctx,bug):
+     await self.bot.get_channel(745601986669576192).send(bug)
+     await ctx.send('バグ報告が完了しました!')
 def setup(bot):
     bot.add_cog(inacog(bot))
     print('TestCog Loaded!')
