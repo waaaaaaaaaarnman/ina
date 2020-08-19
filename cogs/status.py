@@ -6,13 +6,13 @@ class status(commands.Cog):
         self.statusloop.start()
     @tasks.loop(seconds=40)
     async def statusloop(self):
-      await bot.change_presence(activity=discord.Game(f"導入サーバー数:{len(self.bot.guilds)}"))
+      await self.bot.change_presence(activity=discord.Game(f"導入サーバー数:{len(self.bot.guilds)}"))
       time.sleep(10)
-      await bot.change_presence(activity=discord.Game("てすと1"))
+      await self.bot.change_presence(activity=discord.Game("てすと1"))
       time.sleep(10)
-      await bot.change_presence(activity=discord.Game("てすと2"))
+      await self.bot.change_presence(activity=discord.Game("てすと2"))
       time.sleep(10)
-      await bot.change_presence(activity=discord.Game("てすと3"))
+      await self.bot.change_presence(activity=discord.Game("てすと3"))
       time.sleep(10)          
   
 def setup(bot):
