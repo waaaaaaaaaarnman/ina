@@ -5,7 +5,7 @@ class globalch(commands.Cog):
         self.bot = bot
     @commands.Cog.listener()
     async def on_message(self, message):
-     with open('datas/global_channel.json') as f:
+     with open('datas/global_channel.json','r') as f:
             global_channels = json.loads(f)
      if message.author.bot:
         return
