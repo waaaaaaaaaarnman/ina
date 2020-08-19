@@ -28,6 +28,7 @@ class inacog(commands.Cog):
         helpembed.add_field(name="search <検索したいワード(スペースOK)>",value="Googleの検索ができます。")
         helpembed.add_field(name="update_notice",value="アップデート情報のチャンネルをフォローできます。")
         helpembed.add_field(name="global_chat",value="グローバルチャットに接続できます。")
+        helpembed.add_field(name="bug",value="バグ報告ができます。")
         helpembed.add_field(name="公式サバ",value="[公式サバはこちら](https://discord.gg/74ZtTMK)")
         await ctx.send(embed=helpembed)
     @commands.command()
