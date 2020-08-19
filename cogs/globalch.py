@@ -3,16 +3,15 @@ import discord
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        with open('datas/global_channels.json') as f:
+            global_channels = json.loads(f)
     @commands.Cog.listener()
     async def on_message(self, message):
      if message.author.bot:
         return
-     GLOBAL_CH_NAME = "ina-global"
      GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
-     if message.channel.name == GLOBAL_CH_NAME:
+     if message.channel.id == global_channels:
         await message.delete()
-        channels = self.bot.get_all_channels()
-        global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
         for channel in global_channels:
             ch_webhooks = await channel.webhooks()
             webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
