@@ -3,7 +3,7 @@ import time
 class status(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.statusloop.start()
+        statusloop.start()
     @tasks.loop(seconds=40)
     async def statusloop(self):
       await self.bot.change_presence(activity=discord.Game(f"導入サーバー数:{len(self.bot.guilds)}"))
