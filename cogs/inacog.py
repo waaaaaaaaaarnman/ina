@@ -5,11 +5,11 @@ class inacog(commands.Cog):
         self.bot = bot
     @commands.command()
     async def ping(self,ctx):
-     await ctx.send(f'pong! took:{round(self.bot.latency,2)}ms')
+     await ctx.send(f'Pong! Took:{round(self.bot.latency,2)}ms')
     @commands.command()
     async def search(self,ctx,*,key):
      keyword = key.replace(' ','+')
-     await ctx.send(f'https://www.google.com/search?q={keyword}')
+     await ctx.send(f'検索結果:https://www.google.com/search?q={keyword}')
     @commands.command()
     async def update_notice(self,ctx):
      await self.bot.get_channel(745531061160640572).follow(destination=ctx.channel)
@@ -17,7 +17,10 @@ class inacog(commands.Cog):
     @commands.command()
     async def global_chat(self,ctx):
      if ctx.channel.name == 'ina-global':
-        
+      await ctx.channel.create_webhook(name='ina-global-webhook')
+      await ctx.send('グローバルチャットに接続できました!')
+     else:
+      await ctx.send('ina-globalというチャンネル名をつけてもう一度試してね!')
     @command.command()
     async def help(self,ctx):
        helpembed = discord.Embed(title="Help",description="コマンドのヘルプだぜぇ") 
@@ -25,6 +28,7 @@ class inacog(commands.Cog):
        helpembed.add_field(name="search <検索したいワード(スペースOK)>",value="Googleの検索ができます。")
        helpembed.add_field(name="update_notice",value="アップデート情報のチャンネルをフォローできます。")
        helpembed.add_field(name="global_chat",value="グローバルチャットに接続できます。")
+       
 def setup(bot):
     bot.add_cog(inacog(bot))
     print('testcog load ok')
