@@ -8,7 +8,7 @@ class status(commands.Cog):
       dt = datetime.datetime.now()
       await self.bot.change_presence(activity=discord.Game(f"今の時間は{dt.hour}:{dt.minute}です!"))
       time.sleep(10)
-      await self.bot.change_presence(activity=discord.Game("てすと2"))
+      await self.bot.change_presence(activity=discord.Game(f"メンバー数:{len(bot.users)}"))
       time.sleep(10)
       await self.bot.change_presence(activity=discord.Game("てすと3"))
       time.sleep(10)          
