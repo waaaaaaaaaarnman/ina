@@ -17,7 +17,7 @@ class globalch(commands.Cog):
             ch_webhooks = await channel.webhooks()
             webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
             if webhook is None:
-             channel.create_webhook(name=GLOBAL_WEBHOOK_NAME)
+             await channel.create_webhook(name=GLOBAL_WEBHOOK_NAME)
             await webhook.send(content=message.content,
                                username=message.author.name,
                                avatar_url=message.author.avatar_url_as(format="png"))
