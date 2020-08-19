@@ -1,5 +1,5 @@
 from discord.ext import commands
-import discord
+import discord,random
 class inacog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -28,14 +28,19 @@ class inacog(commands.Cog):
         helpembed.add_field(name="search <検索したいワード(スペースOK)>",value="Googleの検索ができます。")
         helpembed.add_field(name="update_notice",value="アップデート情報のチャンネルをフォローできます。")
         helpembed.add_field(name="global_chat",value="グローバルチャットに接続できます。")
-        helpembed.add_field(name="bug",value="バグ報告ができます。")
+        helpembed.add_field(name="bugandidea <文章>",value="バグ報告とアイデア送信ができます。")
+        helpembed.add_field(name="omikuji",value="おみぐじができます。")
         helpembed.add_field(name="公式サバ",value="[公式サバはこちら](https://discord.gg/74ZtTMK)")
         helpembed.add_field(name="公式サイト",value="[公式サイトはこちら](https://waaaaaaaaaarnman.github.io/ina/top/)")
         await ctx.send(embed=helpembed)
     @commands.command()
-    async def bug(self,ctx,bug):
-     await self.bot.get_channel(745601986669576192).send(bug)
-     await ctx.send('バグ報告が完了しました!')
+    async def bugandidea(self,ctx,bugandidea):
+     await self.bot.get_channel(745601986669576192).send(bugandidea)
+     await ctx.send('バグ報告又はアイデアの送信が完了しました!')
+    @commands.command()
+    async def omikuji(self,ctx)
+     omikujis = ['大凶','凶','吉','小吉','中吉','大吉']
+     await ctx.send(random.choice(omikujis))
 def setup(bot):
     bot.add_cog(inacog(bot))
     print('TestCog Loaded!')
