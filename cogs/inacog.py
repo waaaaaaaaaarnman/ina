@@ -5,8 +5,8 @@ class inacog(commands.Cog):
         self.bot = bot
     @commands.command()
     async def ping(self,ctx):
-     ping = self.bot.latency
-     await ctx.send(f'pong! took:{ping.round}ms')
+     ping = 
+     await ctx.send(f'pong! took:{round(self.bot.latency,1}ms')
     @commands.command()
     async def search(self,ctx,*,key):
      keyword = key.replace(' ','+')
