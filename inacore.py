@@ -5,7 +5,8 @@ import cogs.inacog as inacog
 import cogs.status as status
 import cogs.globalch as globa
 import os
-bot = commands.Bot(command_prefix='i!',help_command=None)
+bot = commands.Bot(command_prefix='i!')
+bot.remove_command("help")
 @bot.event
 async def on_command_error(ctx,error):
  await ctx.send(f'エラーが発生しました。エラー:{error}')
