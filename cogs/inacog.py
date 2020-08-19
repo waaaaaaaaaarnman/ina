@@ -14,7 +14,7 @@ class inacog(commands.Cog):
     async def update_notice(self,ctx,ch_id):
      if ch_id == None:
       await ctx.channel.follow(destination=745531061160640572,reason='フォローチャンネルのコマンドが打たれたからだよ!')
-    else:
+     else:
       await self.bot.get_channel(int(ch_id)).follow(destination=745531061160640572,reason='フォローチャンネルのコマンドが打たれたからだよ!')
      await ctx.send("アナウンスチャンネルをフォローしたよ！")
      
