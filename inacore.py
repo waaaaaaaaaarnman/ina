@@ -9,7 +9,8 @@ bot = commands.Bot(command_prefix='i!',help_command=None)
 bot.remove_command("help")
 @bot.event
 async def on_command_error(ctx,error):
- await ctx.send(f'エラーが発生しました。エラー:{error}')
+ errorembed = discord.Embed(title='error!',description=error)
+ await ctx.send(embed=errorembed)
 @bot.event
 async def on_ready():
     print('------')
