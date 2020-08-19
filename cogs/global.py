@@ -11,7 +11,7 @@ class global(commands.Cog):
      GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
     if message.channel.name == GLOBAL_CH_NAME:
         await message.delete()
-        channels = client.get_all_channels()
+        channels = self.bot.get_all_channels()
         global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
         for channel in global_channels:
             ch_webhooks = await channel.webhooks()
