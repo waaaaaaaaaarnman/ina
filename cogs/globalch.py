@@ -3,10 +3,10 @@ import discord
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        with open('datas/global_channels.json') as f:
-            global_channels = json.loads(f)
     @commands.Cog.listener()
     async def on_message(self, message):
+     with open('datas/global_channel.json') as f:
+            global_channels = json.loads(f)
      if message.author.bot:
         return
      GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
