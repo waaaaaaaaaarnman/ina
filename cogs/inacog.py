@@ -16,11 +16,13 @@ class inacog(commands.Cog):
      await ctx.send("アナウンスチャンネルをフォローしたよ！")
     @commands.command()
     async def global_chat(self,ctx):
-     if ctx.channel.name == 'ina-global':
       await ctx.channel.create_webhook(name='ina-global-webhook')
+      with open('datas/global_channel.json','r') as f:
+         globalch = json.read(f)
+      globalch.append(ctx.c
+      with open('datas/global_channel.json','w') as f:
+         json.dump(
       await ctx.send('グローバルチャットに接続できました!')
-     else:
-      await ctx.send('ina-globalというチャンネル名をつけてもう一度試してね!')
     @commands.command()
     async def help(self,ctx):
         helpembed = discord.Embed(title="Help",description="コマンドのヘルプだぜぇ") 
