@@ -9,7 +9,7 @@ class globalch(commands.Cog):
         return
      GLOBAL_CH_NAME = "ina-global"
      GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
-    if message.channel.name == GLOBAL_CH_NAME:
+     if message.channel.name == GLOBAL_CH_NAME:
         await message.delete()
         channels = self.bot.get_all_channels()
         global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
