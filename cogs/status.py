@@ -1,5 +1,5 @@
 from discord.ext import commands,tasks
-import time
+import time,discord
 class status(commands.Cog):
     @tasks.loop(seconds=40)
     async def statusloop(self):
