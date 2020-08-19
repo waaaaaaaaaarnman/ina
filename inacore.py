@@ -5,7 +5,7 @@ import cogs.inacog as inacog
 import cogs.status as status
 import cogs.globalch as globa
 import os
-bot = commands.Bot(command_prefix='i!')
+bot = commands.Bot(command_prefix='i!',help_command=None)
 bot.remove_command("help")
 @bot.event
 async def on_command_error(ctx,error):
