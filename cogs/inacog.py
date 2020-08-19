@@ -10,7 +10,13 @@ class inacog(commands.Cog):
     async def search(self,ctx,*,key):
      keyword = key.replace(' ','+')
      await ctx.send(f'https://www.google.com/search?q={keyword}')
-    
+    @commands.command()
+    async def update_notice(self,ctx,ch_id):
+     if ch_id == None:
+      await ctx.channel.follow(destination=745531061160640572,reason='フォローチャンネルのコマンドが打たれたからだよ!')
+    else:
+      await self.bot.get_channel(int(ch_id)).follow(destination=745531061160640572,reason='フォローチャンネルのコマンドが打たれたからだよ!')
+     await ctx.send("アナウンスチャンネルをフォローしたよ！")
      
    
 def setup(bot):
