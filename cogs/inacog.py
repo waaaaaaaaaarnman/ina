@@ -23,14 +23,13 @@ class inacog(commands.Cog):
       await ctx.send('ina-globalというチャンネル名をつけてもう一度試してね!')
     @commands.command()
     async def help(self,ctx):
-       await ctx.send('''**Help**
-コマンドのヘルプだぜぇ
-ping:Ping値を測定できます。 
-search <検索したいワード(スペースOK)>:Googleの検索ができます。
-update_notice:アップデート情報のチャンネルをフォローできます。
-global_chat:グローバルチャットに接続できます。
-公式サバはこちら:https://discord.gg/74ZtTMK
-~~embed使いたかったのに謎エラーで使えなかった。起訴~~''')
+        helpembed = discord.Embed(title="Help",description="コマンドのヘルプだぜぇ") 
+        helpembed.add_field(name="ping",value="Ping値を測定できます。")
+        helpembed.add_field(name="search <検索したいワード(スペースOK)>",value="Googleの検索ができます。")
+        helpembed.add_field(name="update_notice",value="アップデート情報のチャンネルをフォローできます。")
+        helpembed.add_field(name="global_chat",value="グローバルチャットに接続できます。")
+        helpembed.add_field(value="[公式サバはこちら](https://discord.gg/74ZtTMK)")
+        await ctx.send(embed=helpembed)
        
 def setup(bot):
     bot.add_cog(inacog(bot))
