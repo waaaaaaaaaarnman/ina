@@ -38,7 +38,7 @@ class inacog(commands.Cog):
      await self.bot.get_channel(745601986669576192).send(bugandidea)
      await ctx.send('バグ報告又はアイデアの送信が完了しました!')
     @commands.command()
-    async def omikuji(self,ctx)
+    async def omikuji(self,ctx):
      omikujis = ['大凶','凶','吉','小吉','中吉','大吉']
      await ctx.send(random.choice(omikujis))
 def setup(bot):
