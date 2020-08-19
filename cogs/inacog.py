@@ -12,7 +12,7 @@ class inacog(commands.Cog):
      await ctx.send(f'https://www.google.com/search?q={keyword}')
     @commands.command()
     async def update_notice(self,ctx):
-     await ctx.channel.follow(destination=745531061160640572)
+     await self.bot.get_channel(745531061160640572).follow(destination=ctx.channel)
      await ctx.send("アナウンスチャンネルをフォローしたよ！")
      
    
