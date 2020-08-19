@@ -38,8 +38,9 @@ class inacog(commands.Cog):
         about = discord.Embed(title='about',description='このボットについてです。')
         about.add_field(name="作った人",value="Kaede_728#8140")
         about.add_field(name="ping",value=round(self.bot.latency,2))
-        about.add_field(name="人数",value=len(self.bot.guilds))
-        about.add_field(name="サーバー数",value=
+        about.add_field(name="人数",value=len(self.bot.users))
+        about.add_field(name="サーバー数",value=len(self.bot.guilds))
+        await ctx.send(embed=about)
     @commands.command()
     async def bugandidea(self,ctx,bugandidea):
      await self.bot.get_channel(745601986669576192).send(bugandidea)
