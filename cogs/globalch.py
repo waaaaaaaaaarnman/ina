@@ -29,6 +29,7 @@ class globalch(commands.Cog):
         await message.delete()
         for channel in global_channels:
             channeldata = self.bot.get_channel(int(channel))
+            print(channeldata)
             ch_webhooks = await channeldata.webhooks()
             webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
             await webhook.send(content=message.content,
