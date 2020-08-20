@@ -28,6 +28,7 @@ class globalch(commands.Cog):
       if str(message.channel.id) == globalch:
         await message.delete()
         for channel in global_channels:
+            print(type(channel),channel)
             channeldata = self.bot.get_channel(int(channel))
             print(channeldata)
             ch_webhooks = await channeldata.webhooks()
