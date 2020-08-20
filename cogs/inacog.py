@@ -6,7 +6,6 @@ class inacog(commands.Cog):
      datach = self.bot.get_channel(745805249779990648)
      globaldata = await datach.fetch_message(745814673265393794)
      await globaldata.edit(content=globaldata.content.replace(ctx.channel.id,'')
-     await ctx.send('グローバルチャットから離脱しました!')
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
