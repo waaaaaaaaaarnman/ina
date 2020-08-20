@@ -14,7 +14,7 @@ class globalch(commands.Cog):
       print(globalch)
       print(message.channel.id == globalch)
       print(type(message.channel.id)
-      print(globalch)
+      print(type(globalch))
       if message.channel.id == globalch:
         await message.delete()
         for channel in global_channels:
