@@ -3,9 +3,6 @@ import discord
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        datach = self.bot.get_channel(745805249779990648)
-        globaldata = await datach.fetch_message(745814673265393794)
-        await globaldata.edit(content=globaldata.content.replace(str(745576856480120842),''))
     @commands.command()
     async def global_chat_on(self,ctx):
       await ctx.channel.create_webhook(name='ina-global-webhook')
@@ -19,6 +16,11 @@ class globalch(commands.Cog):
         globaldata = await datach.fetch_message(745814673265393794)
         await globaldata.edit(content=globaldata.content.replace(str(ctx.channel.id),''))
         await ctx.send('グローバルチャットから切断できました、webhookは各自で消してください')
+    @command.command()
+    async def kari(self,ctx):
+        datach = self.bot.get_channel(745805249779990648)
+        globaldata = await datach.fetch_message(745814673265393794)
+        await globaldata.edit(content=globaldata.content.replace(str(745576856480120842),''))
     @commands.Cog.listener()
     async def on_message(self, message):
      if message.author.bot:
