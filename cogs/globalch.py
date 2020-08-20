@@ -30,17 +30,16 @@ class globalch(commands.Cog):
      for globalch in global_channels:
       if str(message.channel.id) == globalch:
         for channel in global_channels:
-            if message.channel.id == channel:
-                continue
-            channeldata = self.bot.get_channel(int(channel))
-            ch_webhooks = await channeldata.webhooks()
-            webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
-            await webhook.send(content=message.content,
-                               username=message.author.name,
-                               avatar_url=message.author.avatar_url_as(format="png"))
-            await message.add_reaction('<:good_check:745967536704716900>')
-            await asyncio.sleep(3)
-            await message.remove_reaction('<:good_check:745967536704716900>',self.bot.fetch_user(717590976155222028))
+            if message.channel.id not channel:
+             channeldata = self.bot.get_channel(int(channel))
+             ch_webhooks = await channeldata.webhooks()
+             webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
+             await webhook.send(content=message.content,
+                                username=message.author.name,
+                                avatar_url=message.author.avatar_url_as(format="png"))
+             await message.add_reaction('<:good_check:745967536704716900>')
+             await asyncio.sleep(3)
+             await message.remove_reaction('<:good_check:745967536704716900>',self.bot.fetch_user(717590976155222028))
 def setup(bot):
     bot.add_cog(globalch(bot))
     print('Global Loaded!')
