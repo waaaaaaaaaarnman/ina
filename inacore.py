@@ -21,4 +21,5 @@ async def on_ready():
     inacog.setup(bot)
     status.setup(bot)
     globa.setup(bot)
+    await bot.get_channel(745805249779990648).send('735717256226537472')
 bot.run(os.environ["BOT_TOKEN"])
