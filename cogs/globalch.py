@@ -3,6 +3,11 @@ import discord
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+    @commands.command()
+    async def global_chat_off(self,ctx):
+     datach = self.bot.get_channel(745805249779990648)
+     globaldata = await datach.fetch_message(745814673265393794)
+     await globaldata.edit(content=globaldata.content.replace(ctx.channel.id,'')    
     @commands.Cog.listener()
     async def on_message(self, message):
      global_ch = self.bot.get_channel(745805249779990648)
