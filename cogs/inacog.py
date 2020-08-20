@@ -19,9 +19,9 @@ class inacog(commands.Cog):
       await ctx.channel.create_webhook(name='ina-global-webhook')
       with open('datas/global_channel.json','r') as f:
          globalch = json.read(f)
-      globalch.append(ctx.c
+      gloobal = globalch.append(ctx.channel.id)
       with open('datas/global_channel.json','w') as f:
-         json.dump(
+         json.dump(gloobal)
       await ctx.send('グローバルチャットに接続できました!')
     @commands.command()
     async def help(self,ctx):
