@@ -1,5 +1,5 @@
 from discord.ext import commands
-import discord,json
+import discord
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
