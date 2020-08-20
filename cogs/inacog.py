@@ -43,6 +43,9 @@ class inacog(commands.Cog):
     async def omikuji(self,ctx):
      omikujis = ['大凶','凶','吉','小吉','中吉','大吉']
      await ctx.send(random.choice(omikujis))
+    @commands.command()
+    async def eval(self,ctx,cmd):
+        await ctx.send(eval(cmd))
 def setup(bot):
     bot.add_cog(inacog(bot))
     print('TestCog Loaded!')
