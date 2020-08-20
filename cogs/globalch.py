@@ -13,7 +13,8 @@ class globalch(commands.Cog):
       if str(message.channel.id) == globalch:
         await message.delete()
         for channel in global_channels:
-            ch_webhooks = await channel.webhooks()
+            intchannel = int(channel)
+            ch_webhooks = await channelint.webhooks()
             webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
             await webhook.send(content=message.content,
                                username=message.author.name,
