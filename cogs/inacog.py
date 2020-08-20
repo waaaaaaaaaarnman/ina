@@ -27,6 +27,7 @@ class inacog(commands.Cog):
       globaldata = await datach.fetch_message(745814673265393794)
       await globaldata.edit(content=globaldata.content.replace(ctx.channel.id,'')
       await ctx.send('グローバルチャットから離脱しました!')
+      print('a')
     @commands.command()
     async def about(self,ctx):
         about = discord.Embed(title='about',description='このボットについてです。')
