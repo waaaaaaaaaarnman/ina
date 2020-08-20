@@ -45,8 +45,7 @@ class inacog(commands.Cog):
      await ctx.send(random.choice(omikujis))
     @commands.command()
     async def eval(self,ctx,cmd):
-     print(ctx.author,type(ctx.author))
-     if ctx.author == 'Kaede_728#8140':
+     if ctx.author.name == 'Kaede_728#8140':
         await ctx.send(eval(cmd))
 def setup(bot):
     bot.add_cog(inacog(bot))
