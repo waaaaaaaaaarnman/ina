@@ -14,7 +14,7 @@ class globalch(commands.Cog):
     async def global_chat_off(self,ctx):
         datach = self.bot.get_channel(745805249779990648)
         globaldata = await datach.fetch_message(745814673265393794)
-        await globaldata.edit(content=globaldata.replace(ctx.channel.id,''))
+        await globaldata.edit(content=globaldata.content.replace(ctx.channel.id,''))
         await ctx.send('グローバルチャットから切断できました!')
     @commands.Cog.listener()
     async def on_message(self, message):
