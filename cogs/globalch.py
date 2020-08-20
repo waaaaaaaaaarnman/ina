@@ -18,7 +18,7 @@ class globalch(commands.Cog):
         webhooks = await ctx.channel.webhooks()
         webhookk = discord.utils.get(ch_webhooks, name='ina-global-webhook')
         webhookk.delete()
-        await ctx.send('グローバルチャットから切断できました!)
+        await ctx.send('グローバルチャットから切断できました!')
     @commands.Cog.listener()
     async def on_message(self, message):
      if message.author.bot:
