@@ -9,7 +9,7 @@ bot = commands.Bot(command_prefix='i!',help_command=None)
 bot.remove_command("help")
 @bot.event
 async def on_command_error(ctx,error):
- errorembed = discord.Embed(title='error!',description=str(error))
+ errorembed = discord.Embed(title='error!',description=str(error),color=9e0303)
  await ctx.send(embed=errorembed)
 @bot.event
 async def on_ready():
