@@ -1,5 +1,5 @@
 from discord.ext import commands
-import discord,random,json
+import discord,random
 class inacog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -17,11 +17,8 @@ class inacog(commands.Cog):
     @commands.command()
     async def global_chat(self,ctx):
       await ctx.channel.create_webhook(name='ina-global-webhook')
-      with open('datas/global_channel.json','r') as f:
-         globalch = f.read().split
-      gloobal = globalch.append(ctx.channel.id)
-      with open('datas/global_channel.json','w') as f:
-         json.dump(gloobal)
+      globaldata = self.bot.fetch_message(745805308378480680)
+      await globaldata.edit(f'{globaldata.content} {ctx.channel.id})
       await ctx.send('グローバルチャットに接続できました!')
     @commands.command()
     async def help(self,ctx):
