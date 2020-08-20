@@ -5,7 +5,7 @@ class globalch(commands.Cog):
         self.bot = bot
     @commands.Cog.listener()
     async def on_message(self, message):
-     if message.author == bot:
+     if message.author.bot:
         return
      global_ch = self.bot.get_channel(745805249779990648)
      global_channel = await global_ch.fetch_message(745814673265393794)
