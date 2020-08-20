@@ -3,6 +3,19 @@ import discord
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+    @commands.command()
+    async def global_chat_on(self,ctx):
+      await ctx.channel.create_webhook(name='ina-global-webhook')
+      datach = self.bot.get_channel(745805249779990648)
+      globaldata = await datach.fetch_message(745814673265393794)
+      await globaldata.edit(content=f'{globaldata.content} {ctx.channel.id}')
+      await ctx.send('グローバルチャットに接続できました!')
+    @commands.command()
+    async def global_chat_off(self,ctx):
+        datach = self.bot.get_channel(745805249779990648)
+        globaldata = await datach.fetch_message(745814673265393794)
+        await globaldata.edit(content=globaldata.replace(ctx.channel.id,''))
+        await ctx.send('グローバルチャットから切断できました!')
     @commands.Cog.listener()
     async def on_message(self, message):
      if message.author.bot:
@@ -23,4 +36,4 @@ class globalch(commands.Cog):
                                avatar_url=message.author.avatar_url_as(format="png"))
 def setup(bot):
     bot.add_cog(globalch(bot))
-    print('Global Loaded')
+    print('Global Loaded!')
