@@ -9,13 +9,8 @@ class globalch(commands.Cog):
      global_channel = await global_ch.fetch_message(745814673265393794)
      global_channels = global_channel.content.split()
      GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
-     print(global_channels)
      for globalch in global_channels:
-      print(globalch)
-      print(message.channel.id == globalch)
-      print(type(message.channel.id))
-      print(type(globalch))
-      if message.channel.id == globalch:
+      if str(message.channel.id) == globalch:
         await message.delete()
         for channel in global_channels:
             ch_webhooks = await channel.webhooks()
