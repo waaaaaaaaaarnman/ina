@@ -37,7 +37,7 @@ class inacog(commands.Cog):
         await ctx.send(embed=helpembed)
     @commands.command()
     async def bugandidea(self,ctx,bugandidea):
-     await self.bot.get_channel(745601986669576192).send(f'{ctx.author}さん:{bugandidea})
+     await self.bot.get_channel(745601986669576192).send(f'{ctx.author}さん:{bugandidea}')
      await ctx.send('バグ報告又はアイデアの送信が完了しました!')
     @commands.command()
     async def omikuji(self,ctx):
