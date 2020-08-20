@@ -6,7 +6,7 @@ class globalch(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
      with open('datas/global_channel.json','r') as f:
-            global_channels = f.load()
+            global_channels = f.load().split()
      if message.author.bot:
         return
      GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
