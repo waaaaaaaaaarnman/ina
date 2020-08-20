@@ -21,4 +21,4 @@ class globalch(commands.Cog):
                                avatar_url=message.author.avatar_url_as(format="png"))
 def setup(bot):
     bot.add_cog(globalch(bot))
-    print('Global Loaded
+    print('Global Loaded')
