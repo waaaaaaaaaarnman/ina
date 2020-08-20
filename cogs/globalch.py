@@ -13,12 +13,12 @@ class globalch(commands.Cog):
       if str(message.channel.id) == globalch:
         await message.delete()
         for channel in global_channels:
-            channelint = int(channel)
-            ch_webhooks = await channelint.webhooks()
+            channeldata = self.bot.get_channels(int(channel))
+            ch_webhooks = await channeldata.webhooks()
             webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
             await webhook.send(content=message.content,
                                username=message.author.name,
                                avatar_url=message.author.avatar_url_as(format="png"))
 def setup(bot):
     bot.add_cog(globalch(bot))
-    print('Global Loaded!')
+    print('Global Loaded
