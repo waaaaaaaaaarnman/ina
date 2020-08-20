@@ -1,5 +1,5 @@
 from discord.ext import commands
-import discord
+import discord,asyncio
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -38,9 +38,9 @@ class globalch(commands.Cog):
             await webhook.send(content=message.content,
                                username=message.author.name,
                                avatar_url=message.author.avatar_url_as(format="png"))
-            message.add_reaction('<:good_check:745967536704716900>')
-            asyncio.sleep(3)
-            message.remove_reaction('<:good_check:745967536704716900>',self.bot.fetch_user(717590976155222028))
+            await message.add_reaction('<:good_check:745967536704716900>')
+            await asyncio.sleep(3)
+            await message.remove_reaction('<:good_check:745967536704716900>',self.bot.fetch_user(717590976155222028))
 def setup(bot):
     bot.add_cog(globalch(bot))
     print('Global Loaded!')
