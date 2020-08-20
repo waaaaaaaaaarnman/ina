@@ -21,4 +21,13 @@ async def on_ready():
     inacog.setup(bot)
     status.setup(bot)
     globa.setup(bot)
+@bot.event
+async def on_member_join(member):
+ bandata = await self.bot.get_channel(745805249779990648).fetch_message(745906962197381140)
+ listban = bandata.split()
+ listbanr = listban.split(':')
+ for bann in listban:
+   if bann[0] == str(member.id):
+    banuser = self.bot.fetch_user(member.id)
+    await ban(banuser,f'Ina Gban SystemによってGbanされました。理由:{bann[1]})
 bot.run(os.environ["BOT_TOKEN"])
