@@ -15,12 +15,17 @@ class inacog(commands.Cog):
      await self.bot.get_channel(745531061160640572).follow(destination=ctx.channel)
      await ctx.send("アナウンスチャンネルをフォローしたよ！")
     @commands.command()
-    async def global_chat(self,ctx):
+    async def global_chat(self,ctx,mode):
+     if mode == 'on':
       await ctx.channel.create_webhook(name='ina-global-webhook')
       datach = self.bot.get_channel(745805249779990648)
       globaldata = await datach.fetch_message(745814673265393794)
       await globaldata.edit(content=f'{globaldata.content} {ctx.channel.id}')
       await ctx.send('グローバルチャットに接続できました!')
+     if mode == 'off':
+      datach = self.bot.get_channel(745805249779990648)
+      globaldata = await datach.fetch_message(745814673265393794)
+      await globaldata.edit(content=globaldata.content.replace(ctx.channel.id,'')
     @commands.command()
     async def help(self,ctx):
         helpembed = discord.Embed(title="Help",description="コマンドのヘルプだぜぇ") 
