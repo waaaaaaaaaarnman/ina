@@ -18,7 +18,7 @@ class inacog(commands.Cog):
     async def global_chat(self,ctx):
       await ctx.channel.create_webhook(name='ina-global-webhook')
       with open('datas/global_channel.json','r') as f:
-         globalch = f.read()
+         globalch = f.read().split
       gloobal = globalch.append(ctx.channel.id)
       with open('datas/global_channel.json','w') as f:
          json.dump(gloobal)
