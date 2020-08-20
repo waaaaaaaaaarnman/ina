@@ -25,5 +25,5 @@ class gban(commands.Cog):
     await unban(banuser,banreason)
                                
 def setup(bot):
- bot.add_cog(gban(bot))
+    bot.add_cog(gban(bot))
     print('Gban Loaded!')
