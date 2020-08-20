@@ -22,8 +22,7 @@ class gban(commands.Cog):
    bandata = await self.bot.get_channel(745805249779990648).fetch_message(745906962197381140)
    await bandata.edit(content=f'{bandata.content.relpace('{banid}:{banreason}','')
    for unban in self.bot.guilds:
-    await unban(banuser,banreason)
-                               
+    await unban(banuser,banreason)                          
 def setup(bot):
     bot.add_cog(gban(bot))
     print('Gban Loaded!')
