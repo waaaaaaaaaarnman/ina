@@ -28,7 +28,7 @@ class inacog(commands.Cog):
         helpembed.add_field(name="ping",value="Ping値を測定できます。")
         helpembed.add_field(name="search <検索したいワード(スペースOK)>",value="Googleの検索ができます。")
         helpembed.add_field(name="update_notice",value="アップデート情報のチャンネルをフォローできます。")
-        helpembed.add_field(name="global_chat",value="グローバルチャットに接続できます。")
+        helpembed.add_field(name="global_chat_<on,off>",value="グローバルチャットに接続できます。")
         helpembed.add_field(name="bugandidea <文章>",value="バグ報告とアイデア送信ができます。")
         helpembed.add_field(name="omikuji",value="おみぐじができます。")
         helpembed.add_field(name="about",value="ボットの情報が表示されます。")
