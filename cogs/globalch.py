@@ -8,9 +8,6 @@ class globalch(commands.Cog):
      global_ch = self.bot.get_channel(745805249779990648)
      global_channel = await global_ch.fetch_message(745814673265393794)
      global_channels = global_channel.content.split()
-     print(global_channels)
-     if message.author.bot:
-        return
      GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
      if message.channel.id == global_channels:
         await message.delete()
