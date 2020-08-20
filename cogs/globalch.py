@@ -30,7 +30,9 @@ class globalch(commands.Cog):
      for globalch in global_channels:
       if str(message.channel.id) == globalch:
         for channel in global_channels:
-            if message.channel.id not channel:
+            if message.channel.id == channel:
+             pass
+            else:
              channeldata = self.bot.get_channel(int(channel))
              ch_webhooks = await channeldata.webhooks()
              webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
