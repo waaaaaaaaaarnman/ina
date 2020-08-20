@@ -31,7 +31,7 @@ class globalch(commands.Cog):
       if str(message.channel.id) == globalch:
         for channel in global_channels:
             if message.channel.id == channel:
-             pass
+             break
             else:
              channeldata = self.bot.get_channel(int(channel))
              ch_webhooks = await channeldata.webhooks()
@@ -41,7 +41,7 @@ class globalch(commands.Cog):
                                 avatar_url=message.author.avatar_url_as(format="png"))
              await message.add_reaction('<:good_check:745967536704716900>')
              await asyncio.sleep(3)
-             await message.remove_reaction('<:good_check:745967536704716900>',self.bot.fetch_user(717590976155222028))
+             await message.remove_reaction('<:good_check:745967536704716900>',await self.bot.fetch_user(717590976155222028))
 def setup(bot):
     bot.add_cog(globalch(bot))
     print('Global Loaded!')
