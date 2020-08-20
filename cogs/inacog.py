@@ -4,11 +4,6 @@ class inacog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
-    async def global_chat_off(self,ctx):
-     datach = self.bot.get_channel(745805249779990648)
-     globaldata = await datach.fetch_message(745814673265393794)
-     await globaldata.edit(content=globaldata.content.replace(ctx.channel.id,'')
-    @commands.command()
     async def ping(self,ctx):
      await ctx.send(f'Pong! Took:{round(self.bot.latency,2)}ms')
     @commands.command()
