@@ -17,7 +17,7 @@ class inacog(commands.Cog):
     @commands.command()
     async def global_chat(self,ctx):
       await ctx.channel.create_webhook(name='ina-global-webhook')
-      globaldata = self.bot.fetch_message(745805308378480680)
+      globaldata = self.bot.get_channel(745805249779990648).fetch_message(745805308378480680)
       await globaldata.edit(f'{globaldata.content} {ctx.channel.id}')
       await ctx.send('グローバルチャットに接続できました!')
     @commands.command()
