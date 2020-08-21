@@ -14,8 +14,7 @@ class globalch(commands.Cog):
       global_channel = await global_ch.fetch_message(745814673265393794)
       global_channels = global_channel.content.split()
       GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
-      for globalch in global_channels:
-       for channel in global_channels:
+      for channel in global_channels:
              channeldata = self.bot.get_channel(int(channel))
              ch_webhooks = await channeldata.webhooks()
              webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
