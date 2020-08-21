@@ -16,7 +16,7 @@ class inacog(commands.Cog):
      await ctx.send("アナウンスチャンネルをフォローしたよ！")
     @commands.command()
     async def about(self,ctx):
-        about = discord.Embed(title='about',description='このボットについてです。')
+        about = discord.Embed(title='about',description='このボットについてです。',color=discord.Colour.from_rgb(222,198,16))
         about.add_field(name="作った人",value="Kaede_728#8140")
         about.add_field(name="ping",value=round(self.bot.latency,2))
         about.add_field(name="人数",value=len(self.bot.users))
@@ -24,7 +24,7 @@ class inacog(commands.Cog):
         await ctx.send(embed=about)
     @commands.command()
     async def help(self,ctx):
-        helpembed = discord.Embed(title="Help",description="コマンドのヘルプだぜぇ") 
+        helpembed = discord.Embed(title="Help",description="コマンドのヘルプだぜぇ",color=discord.Colour.from_rgb(46,222,16))
         helpembed.add_field(name="ping",value="Ping値を測定できます。")
         helpembed.add_field(name="search <検索したいワード(スペースOK)>",value="Googleの検索ができます。")
         helpembed.add_field(name="update_notice",value="アップデート情報のチャンネルをフォローできます。")
