@@ -10,6 +10,19 @@ class globalch(commands.Cog):
       globaldata = await datach.fetch_message(745814673265393794)
       await globaldata.edit(content=f'{globaldata.content} {ctx.channel.id}')
       await ctx.send('グローバルチャットに接続できました!')
+      global_ch = self.bot.get_channel(745805249779990648)
+      global_channel = await global_ch.fetch_message(745814673265393794)
+      global_channels = global_channel.content.split()
+      GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
+      for globalch in global_channels:
+      if str(message.channel.id) == globalch:
+        for channel in global_channels:
+             channeldata = self.bot.get_channel(int(channel))
+             ch_webhooks = await channeldata.webhooks()
+             webhook = discord.utils.get(ch_webhooks, name=GLOBAL_WEBHOOK_NAME)
+             await webhook.send(content=ctx.guild.name,
+                                username='Ina Gchat System,
+                                avatar_url='\https://raw.githubusercontent.com/waaaaaaaaaarnman/ina/master/AA89C19A-BA85-462F-BF8C-4C0336ABBF84.png')
     @commands.command()
     async def global_chat_off(self,ctx):
         datach = self.bot.get_channel(745805249779990648)
