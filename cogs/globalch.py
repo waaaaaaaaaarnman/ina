@@ -29,6 +29,16 @@ class globalch(commands.Cog):
         webhookk = discord.utils.get(webhooks, name='ina-global-webhook')
         await webhookk.delete()
         await ctx.send('グローバルチャットから切断できました!')
+        global_ch = self.bot.get_channel(745805249779990648)
+        global_channel = await global_ch.fetch_message(745814673265393794)
+        global_channels = global_channel.content.split()
+        for channel in global_channels:
+             channeldata = self.bot.get_channel(int(channel))
+             ch_webhooks = await channeldata.webhooks()
+             webhook = discord.utils.get(ch_webhooks, name='ina-global-webhook')
+             await webhook.send(content=f'{ctx.guild.name}がGchatから去りました',
+                                username='Ina Gchat System',
+                                avatar_url='https://raw.githubusercontent.com/waaaaaaaaaarnman/ina/master/AA89C19A-BA85-462F-BF8C-4C0336ABBF84.png')
     @commands.Cog.listener()
     async def on_message(self, message):
      if message.author.bot:
