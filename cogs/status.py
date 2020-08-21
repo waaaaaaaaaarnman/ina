@@ -7,7 +7,7 @@ class status(commands.Cog):
       await asyncio.sleep(10)
       await self.bot.change_presence(activity=discord.Game(f"メンバー数:{len(self.bot.users)}"))
       await asyncio.sleep(10)
-      await await self.bot.change_presence(activity=discord.Game("ヘルプはi!help"))
+      await self.bot.change_presence(activity=discord.Game("ヘルプはi!help"))
       await asyncio.sleep(10)
     def __init__(self, bot):
         self.bot = bot
