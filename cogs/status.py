@@ -1,11 +1,13 @@
 from discord.ext import commands,tasks
 import asyncio,discord
 class status(commands.Cog):
-    @tasks.loop(seconds=20)
+    @tasks.loop(seconds=30)
     async def statusloop(self):
       await self.bot.change_presence(activity=discord.Game(f"導入サーバー数:{len(self.bot.guilds)}"))
       await asyncio.sleep(10)
       await self.bot.change_presence(activity=discord.Game(f"メンバー数:{len(self.bot.users)}"))
+      await asyncio.sleep(10)
+      await await self.bot.change_presence(activity=discord.Game(f"今のPing:{self.bot.latency}"))
       await asyncio.sleep(10)
     def __init__(self, bot):
         self.bot = bot
