@@ -16,7 +16,7 @@ class bump(commands.Cog):
     async def off(self,ctx):
         bumpdata = await self.bot.get_channel(745805249779990648).fetch_message(745906962197381140)
         await bumpdata.edit(content=bumpdata.content.replace(ctx.channel.id,'')
-        await ctx.send('bunp通知をオフにしました！')
+        await ctx.send('bump通知をOFFにしました!')
     @commands.Cog.listener()
     async def on_message(self,message):
        if message.author.bot:
