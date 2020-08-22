@@ -6,9 +6,13 @@ class gban(commands.Cog):
     @commands.command()
     async def gban(self,ctx,banid,banreason):
      if str(ctx.author) == 'Kaede_728#8140':
-      for guild in self.bot.guilds:
-       await guild.get_member(banid).ban(reason=banreason)
-      await ctx.send('gbanが完了しました')
+       await self.bot.fetch_user(int(banid)).ban(reason=banreason)
+       await ctx.send('gbanが完了しました')
+    @commands.command()
+    async def ungban(self,ctx,ungbanid,ungbanreason):
+      if str(ctx.author) == 'Kaede_728#8140':
+       await self.bot.fetch_user(int(banid)).unban(reason=banreason)
+       await ctx.send('ungbanが完了しました')
 def setup(bot):
     bot.add_cog(gban(bot))
     print('Gban Loaded!')
