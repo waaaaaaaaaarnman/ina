@@ -1,17 +1,16 @@
-from discord.ext import commands,tasks
-import asyncio,discord
-class status(commands.Cog):
-    @tasks.loop(seconds=30)
-    async def statusloop(self):
-      await self.bot.change_presence(activity=discord.Game(f"導入サーバー数:{len(self.bot.guilds)}"))
-      await asyncio.sleep(10)
-      await self.bot.change_presence(activity=discord.Game(f"メンバー数:{len(self.bot.users)}"))
-      await asyncio.sleep(10)
-      await self.bot.change_presence(activity=discord.Game("ヘルプはi!help"))
-      await asyncio.sleep(10)
+from discord.ext import commands
+import discord,asyncio
+class bump(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.statusloop.start()
+    @commands.group()
+    async def bump_tuti(ctx,self):
+        if ctx.invoked_subcommand is None:
+            await ctx.send('このコマンドにはサブコマンドが必要です。')
+    @bump_tuti.command()
+    async def on(self,ctx):
+        bumpdata = await self.bot.get_channel(745805249779990648).
+                                              
 def setup(bot):
-    bot.add_cog(status(bot))
-    print('Status Loaded!')
+    bot.add_cog(bump(bot))
+    print('Bump Loaded!')
