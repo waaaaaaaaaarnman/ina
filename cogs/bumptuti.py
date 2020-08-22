@@ -27,7 +27,8 @@ class bump(commands.Cog):
          for bump in bumplist:
            if bump == str(message.channel.id):                       
             await message.channel.send('bumpを検知したので二時間ごに通知します。')
-            asyncio.sleep(
+            asyncio.sleep(7200)
+            await message.channel.send('bumpしましょう!')
 def setup(bot):
     bot.add_cog(bump(bot))
     print('Bump Loaded!')
