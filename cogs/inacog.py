@@ -96,7 +96,7 @@ class inacog(commands.Cog):
            if str(ctx.author)  == 'Kaede_728#8140':
 
             env = {'bot': self.bot, 'ctx': ctx, 'channel': ctx.channel, 'author': ctx.author, 'guild': ctx.guild,
-                   'message': ctx.message, '_': self._last_result}
+                   'message': ctx.message)
             env.update(globals())
             body = cleanup_code(ctx.message.content[6:].lstrip())
             stdout = io.StringIO()
