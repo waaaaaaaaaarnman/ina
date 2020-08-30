@@ -65,6 +65,7 @@ class inacog(commands.Cog):
         await ctx.send(embed=about)
     @commands.command()
     async def help(self, ctx):
+        try:
             pages = [(discord.Embed(title="ヘルプコマンド")),
                      (discord.Embed(title="お遊びコマンド")),
                      (discord.Embed(title="グローバルチャットのコマンド")),
@@ -81,7 +82,8 @@ class inacog(commands.Cog):
             nav = libneko.pag.navigator.EmbedNavigator(ctx, pages, buttons=default_buttons(), timeout=20)
             nav.start()
             await ctx.send(nav)
-    
+        except RecursionError:
+                return
     @commands.command()
     async def bugandidea(self,ctx,bugandidea):
      await self.bot.get_channel(745601986669576192).send(f'{ctx.author}さん:{bugandidea}')
