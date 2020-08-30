@@ -78,11 +78,9 @@ class inacog(commands.Cog):
             pages[3].add_field(name="i!search <調べたい単語>", value="Googleで検索ができます。")
             pages[3].add_field(name="i!ping", value="Ping測定ができます。")
             pages[3].add_field(name="i!bugandidea", value="レポートができます。")
-            nav = libneko.pag.navigator.EmbedNavigator(ctx, pages, buttons=default_buttons(), timeout=30)
+            nav = libneko.pag.navigator.EmbedNavigator(ctx, pages, buttons=default_buttons(), timeout=20)
             nav.start()
             await ctx.send(nav)
-            except RecursionError:
-             return
     
     @commands.command()
     async def bugandidea(self,ctx,bugandidea):
