@@ -124,9 +124,6 @@ class inacog(commands.Cog):
                 else:
                     self._last_result = ret
                     await ctx.send(f'```py\n{value}{ret}\n```')
-
-        except (NotFound, asyncio.TimeoutError, Forbidden):
-            return
         except:
             return print("エラー情報\n" + traceback.format_exc())
 def setup(bot):
