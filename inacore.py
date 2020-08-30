@@ -9,7 +9,7 @@ bot.remove_command("help")
 @bot.event
 async def on_command_error(ctx,error):
  except RecursionError:
-  return
+  break
  errorembed = discord.Embed(title='Error!',description=str(error),color=discord.Colour.from_rgb(166,8,8))
  await ctx.send(embed=errorembed)
 @bot.event
