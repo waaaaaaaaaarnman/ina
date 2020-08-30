@@ -96,7 +96,7 @@ class inacog(commands.Cog):
            if str(ctx.author)  == 'Kaede_728#8140':
 
             env = {'bot': self.bot, 'ctx': ctx, 'channel': ctx.channel, 'author': ctx.author, 'guild': ctx.guild,
-                   'message': ctx.message)
+                   'message': ctx.message}
             env.update(globals())
             body = cleanup_code(ctx.message.content[6:].lstrip())
             stdout = io.StringIO()
@@ -122,7 +122,6 @@ class inacog(commands.Cog):
                     if value:
                         await ctx.send(f'```py\n{value}\n```')
                 else:
-                    self._last_result = ret
                     await ctx.send(f'```py\n{value}{ret}\n```')
         except:
             return print("エラー情報\n" + traceback.format_exc())
