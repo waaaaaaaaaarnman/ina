@@ -6,7 +6,6 @@ import traceback
 import textwrap
 import contextlib
 import os
-import sys
 def cleanup_code(content):
     if content.startswith('```') and content.endswith('```'):
         return '\n'.join(content.split('\n')[1:-1])
@@ -66,7 +65,6 @@ class inacog(commands.Cog):
         await ctx.send(embed=about)
     @commands.command()
     async def help(self, ctx):
-            sys.setrecursionlimit(2000)
             pages = [(discord.Embed(title="ヘルプコマンド")),
                      (discord.Embed(title="お遊びコマンド")),
                      (discord.Embed(title="グローバルチャットのコマンド")),
@@ -83,6 +81,8 @@ class inacog(commands.Cog):
             nav = libneko.pag.navigator.EmbedNavigator(ctx, pages, buttons=default_buttons(), timeout=30)
             nav.start()
             await ctx.send(nav)
+            except RecursionError:
+             return
     
     @commands.command()
     async def bugandidea(self,ctx,bugandidea):
