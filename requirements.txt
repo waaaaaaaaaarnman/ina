@@ -1,1 +1,2 @@
-discord.py[voice] == 1.4
+discord.py[voice] > requirements.txt
+libneko > requirements.txt
