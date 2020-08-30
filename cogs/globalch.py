@@ -43,7 +43,7 @@ class globalch(commands.Cog):
     async def on_message(self, message):
      if message.author.bot:
         return
-     if message.content.startwith('i!'):
+     if message.content.startswith('i!'):
         return
      global_ch = self.bot.get_channel(745805249779990648)
      global_channel = await global_ch.fetch_message(745814673265393794)
