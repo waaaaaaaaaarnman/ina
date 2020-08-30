@@ -32,7 +32,7 @@ class inacog(commands.Cog):
         helpembed.add_field(name="bugandidea <文章>",value="バグ報告とアイデア送信ができます。")
         helpembed.add_field(name="omikuji",value="おみぐじができます。")
         helpembed.add_field(name="about",value="ボットの情報が表示されます。")
-        helpembed.add_field(name="公式サバ",value="[公式サバはこちら](https://discord.gg/74ZtTMK)")
+        helpembed.add_field(name="公式サバ",value="[公式サバはこちら](https://discord.gg/tZqkn8H)")
         helpembed.add_field(name="公式サイト",value="[公式サイトはこちら](https://waaaaaaaaaarnman.github.io/ina/top/)")
         await ctx.send(embed=helpembed)
     @commands.command()
