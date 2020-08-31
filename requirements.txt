@@ -1,4 +1,4 @@
 discord.py[voice]
 libneko
 youtube_dl
-pytube
+ffmpeg
