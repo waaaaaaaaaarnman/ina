@@ -2,3 +2,4 @@ discord.py[voice]
 libneko
 youtube_dl
 ffmpeg
+libopus
