@@ -1,6 +1,2 @@
 discord.py[voice]
 libneko
-youtube_dl
-ffmpeg
-opuslib
-PyNaCl
