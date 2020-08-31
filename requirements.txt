@@ -1,2 +1,3 @@
 discord.py[voice] > requirements.txt
 libneko > requirements.txt
+youtube_dl > requirements.txt
