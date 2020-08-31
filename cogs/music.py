@@ -8,9 +8,6 @@ import traceback
 from async_timeout import timeout
 from functools import partial
 from youtube_dl import YoutubeDL
-import pytube
-from pytube import YouTube
-from pytube import Playlist
 import discord as d
 
 color=000000
