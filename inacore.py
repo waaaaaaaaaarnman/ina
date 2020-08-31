@@ -7,6 +7,8 @@ import cogs.globalch as globa
 import cogs.music as music
 bot = commands.Bot(command_prefix='i!',help_command=None)
 bot.remove_command("help")
+if not discord.opus.is_loaded(): 
+    discord.opus.load_opus("heroku-buildpack-libopus")
 @bot.event
 async def on_command_error(ctx,error):
  errorembed = discord.Embed(title='Error!',description=str(error),color=discord.Colour.from_rgb(166,8,8))
