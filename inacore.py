@@ -18,7 +18,6 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    discord.opus.load_opus("heroku-buildpack-libopus")
     inacog.setup(bot)
     status.setup(bot)
     globa.setup(bot)
