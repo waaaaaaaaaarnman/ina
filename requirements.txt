@@ -1,4 +1,4 @@
-discord.py[voice] > requirements.txt
-libneko > requirements.txt
-youtube_dl > requirements.txt
-pytube > requirements.txt
+discord.py[voice]
+libneko
+youtube_dl
+pytube
