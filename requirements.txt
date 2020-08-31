@@ -1,3 +1,12 @@
 discord.py[voice] > requirements.txt
 libneko > requirements.txt
 youtube_dl > requirements.txt
+asyncio > requirements.txt
+traceback > requirements.txt
+io > requirements.txt
+textwrap > requirements.txt
+contextlib > requirements.txt
+re > requirements.txt
+async_timeout > requirements.txt
+functools > requirements.txt
+pytube > requirements.txt
