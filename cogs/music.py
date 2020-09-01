@@ -54,7 +54,7 @@ class Music(commands.Cog):
         await channel.connect()
         await ctx.send(f'{channel.name}に接続できますした!')
     @commands.command()
-    async def yt(self, ctx, *, url):
+    async def play(self, ctx, *, url):
         """Plays from a url (almost anything youtube_dl supports)"""
         async with ctx.typing():
             player = await YTDLSource.from_url(url, loop=self.bot.loop)
