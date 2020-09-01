@@ -58,10 +58,10 @@ class inacog(commands.Cog):
     @commands.command()
     async def about(self,ctx):
         about = discord.Embed(title='about',description='このボットについてです。',color=discord.Colour.from_rgb(222,198,16))
-        about.add_field(name="作った人",value="Kaede_728#8140")
-        about.add_field(name="ping",value=round(self.bot.latency,2))
-        about.add_field(name="人数",value=len(self.bot.users))
-        about.add_field(name="サーバー数",value=len(self.bot.guilds))
+        about.add_field(name="作った人:",value="Kaede_728#8140")
+        about.add_field(name="ping:",value=round(self.bot.latency,2))
+        about.add_field(name="人数:",value=len(self.bot.users))
+        about.add_field(name="サーバー数:",value=len(self.bot.guilds))
         await ctx.send(embed=about)
     @commands.command()
     async def help(self, ctx):
