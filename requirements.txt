@@ -1,2 +1,4 @@
 discord.py[voice]
 libneko
+ffmpeg
+opuslib
