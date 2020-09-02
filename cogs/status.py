@@ -9,7 +9,7 @@ class status(commands.Cog):
 	      await asyncio.sleep(10)
 	      await self.bot.change_presence(activity=discord.Game("ヘルプはi!help"))
 	      await asyncio.sleep(10)
-	      dt = datetime.now()
+	      dt = datetime.datetime.now()
 	      await self.bot.change_presence(activity=discord.Game(f'ただいま{dt.hour}:{dt.minute}です！'))
 	      await asyncio.sleep(10)
 	    def __init__(self, bot):
