@@ -19,6 +19,27 @@ ffmpeg_options = {
 }
 ytdl = youtube_dl.YoutubeDL(ytdl_format_options)
 class YTDLSource(discord.PCMVolumeTransformer):
+import asyncio
+import discord
+import youtube_dl
+from discord.ext import commands,tasks
+ytdl_format_options = {
+    'format': 'bestaudio/best',
+    'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
+    'restrictfilenames': True,
+    'noplaylist': True,
+    'nocheckcertificate': True,
+    'ignoreerrors': False,
+    'logtostderr': False,
+    'quiet': True,
+    'no_warnings': True,
+    'default_search': 'auto',
+}
+ffmpeg_options = {
+    'options': '-vn'
+}
+ytdl = youtube_dl.YoutubeDL(ytdl_format_options)
+class YTDLSource(discord.PCMVolumeTransformer):
     def __init__(self, source, *, data, volume=0.5):
         super().__init__(source, volume)
 
@@ -39,11 +60,10 @@ class YTDLSource(discord.PCMVolumeTransformer):
         filename = data['url'] if stream else ytdl.prepare_filename(data)
         return cls(discord.FFmpegPCMAudio(filename, **ffmpeg_options), data=data)
 
-
 class Music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-
+           
     @commands.command()
     async def join(self, ctx, *, channel: discord.VoiceChannel):
         """Joins a voice channel"""
@@ -59,10 +79,7 @@ class Music(commands.Cog):
         async with ctx.typing():
             player = await YTDLSource.from_url(url, loop=self.bot.loop)
             ctx.voice_client.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
-
         await ctx.send(f'{player.title}を再生しました。')
-
-   
     @commands.command()
     async def volume(self, ctx, volume: int):
         """Changes the player's volume"""
@@ -73,12 +90,12 @@ class Music(commands.Cog):
         ctx.voice_client.source.volume = volume / 100
         await ctx.send(f"音量を{volume}に変更しました。")
     @commands.command()
-    async def stop(self, ctx):
+    async def disconnect(self, ctx):
         """Stops and disconnects the bot from voice"""
         await ctx.voice_client.disconnect()
         await ctx.send('VCから接続を切りました。')
     @play.before_invoke
-    async def ensure_voice(self, ctx):
+    async def stop(self, ctx):
         if ctx.voice_client is None:
             if ctx.author.voice:
                 await ctx.author.voice.channel.connect()
