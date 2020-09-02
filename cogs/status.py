@@ -1,6 +1,6 @@
 from discord.ext import commands,tasks
-	import asyncio,discord,datetime
-	class status(commands.Cog):
+import asyncio,discord,datetime
+class status(commands.Cog):
 	    @tasks.loop(seconds=40)
 	    async def statusloop(self):
 	      await self.bot.change_presence(activity=discord.Game(f"導入サーバー数:{len(self.bot.guilds)}"))
@@ -15,6 +15,6 @@ from discord.ext import commands,tasks
 	    def __init__(self, bot):
 	        self.bot = bot
 	        self.statusloop.start()
-	def setup(bot):
+def setup(bot):
 	    bot.add_cog(status(bot))
 	    print('Status Loaded!')
