@@ -1,6 +1,6 @@
 from discord.ext import commands
 import discord,asyncio
-import data.sql_get_conn as con
+import data.sql_conn_get as con
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
