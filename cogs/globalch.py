@@ -29,8 +29,8 @@ class globalch(commands.Cog):
     @commands.command()
     async def sql(self,ctx,*,SQL):
      if str(ctx.author) == 'Kaede_728#8140':
-     msg = await DB(SQL)
-     await ctx.send(msg)
+      msg = await DB(SQL)
+      await ctx.send(msg)
     @commands.command()
     async def global_chat_on(self,ctx):
       await ctx.channel.create_webhook(name='ina-global-webhook')
