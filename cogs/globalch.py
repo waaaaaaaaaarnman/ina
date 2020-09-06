@@ -28,6 +28,7 @@ class globalch(commands.Cog):
         self.bot = bot
     @commands.command()
     async def sql(self,ctx,*,SQL):
+     if str(ctx.author) == 'Kaede_728#8140':
      msg = await DB(SQL)
      await ctx.send(msg)
     @commands.command()
@@ -43,7 +44,7 @@ class globalch(commands.Cog):
                                 avatar_url='https://raw.githubusercontent.com/waaaaaaaaaarnman/ina/master/AA89C19A-BA85-462F-BF8C-4C0336ABBF84.png')
     @commands.command()
     async def global_chat_off(self,ctx):
-        await DB(f'DELETE FROM globalch WHERE id='{ctx.channel.id}';')
+        await DB(f"DELETE FROM globalch WHERE id='{ctx.channel.id}';")
         webhooks = await ctx.channel.webhooks()
         webhookk = discord.utils.get(webhooks, name='ina-global-webhook')
         await webhookk.delete()
