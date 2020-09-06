@@ -7,7 +7,8 @@ user = dburl.user
 database = dburl.path[1:]
 port = dburl.port
 password = dburl.password
-async def get_conn():
+async def DB(SQL):
+    #printするときに使ったやつをついでにURLをそのままでもよし
     conn = await asyncpg.connect(
         host = host ,
         user = user, 
@@ -15,4 +16,8 @@ async def get_conn():
         port = port, 
         password = password
         )
-    return conn
+    #SQLを実行
+    values = await conn.fetch(SQL)
+    #接続を切る
+    await conn.close()
+    return values
