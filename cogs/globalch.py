@@ -10,17 +10,22 @@ database = dburl.path[1:]
 port = dburl.port
 password = dburl.password
 async def get_conn():
-    conn = await asyncpg.connect(
+    con = await asyncpg.connect(
         host = host ,
         user = user, 
         database = database, 
         port = port, 
         password = password
         )
-    return conn
+    return con
+conn = await get_conn()
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+    @commands.command
+    async def sql(ctx,*,SQL):
+     msg = conn.fetch(SQL)
+     await ctx.send(msg)
     @commands.command()
     async def global_chat_on(self,ctx):
       await ctx.channel.create_webhook(name='ina-global-webhook')
