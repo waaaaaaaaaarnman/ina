@@ -66,7 +66,7 @@ class globalch(commands.Cog):
      for data in await DB('select * from globalch'):
       globalch = str(data['id'])
       if str(message.channel.id) == globalch:
-        for channell in await DB('select * from globalch']:
+        for channell in await DB('select * from globalch'):
             channel = chanell['id']
             if str(message.channel.id) == channel:
              break
