@@ -1,19 +1,32 @@
 from discord.ext import commands
 import discord,asyncio
+import os
+import asyncpg
+from yarl import URL
+dburl = URL(os.environ["DATABASE_URL"])
+host = dburl.host
+user = dburl.user
+database = dburl.path[1:]
+port = dburl.port
+password = dburl.password
+async def get_conn():
+    conn = await asyncpg.connect(
+        host = host ,
+        user = user, 
+        database = database, 
+        port = port, 
+        password = password
+        )
+    return conn
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
     async def global_chat_on(self,ctx):
       await ctx.channel.create_webhook(name='ina-global-webhook')
-      datach = self.bot.get_channel(745805249779990648)
-      globaldata = await datach.fetch_message(745814673265393794)
-      await globaldata.edit(content=f'{globaldata.content} {ctx.channel.id}')
-      await ctx.send('グローバルチャットに接続できました!')
-      global_ch = self.bot.get_channel(745805249779990648)
-      global_channel = await global_ch.fetch_message(745814673265393794)
-      global_channels = global_channel.content.split()
-      for channel in global_channels:
+      await conn.fetch(f'insert into globalch values ({ctx.channel.id})')
+      datas = await conn.fetch('select * from globalch')
+      for channel in datas:
              channeldata = self.bot.get_channel(int(channel))
              ch_webhooks = await channeldata.webhooks()
              webhook = discord.utils.get(ch_webhooks, name='ina-global-webhook')
