@@ -34,9 +34,8 @@ class globalch(commands.Cog):
     async def global_chat_on(self,ctx):
       await ctx.channel.create_webhook(name='ina-global-webhook')
       await DB(f'insert into globalch values ({str(ctx.channel.id)})')
-      datas = await DB('select * from globalch')
-      for data in datas['id']:
-             channeldata = self.bot.get_channel(int(channel))
+      for data in await DB('select * from globalch'):
+             channeldata = self.bot.get_channel(int(data['id']))
              ch_webhooks = await channeldata.webhooks()
              webhook = discord.utils.get(ch_webhooks, name='ina-global-webhook')
              await webhook.send(content=f'{ctx.guild.name}がGchatに参加しました',
