@@ -4,7 +4,7 @@ from discord.ext import commands
 import cogs.inacog as inacog
 import cogs.status as status
 import cogs.globalch as globa
-import cogs.music as music
+#import cogs.music as music
 bot = commands.Bot(command_prefix='i!',help_command=None)
 bot.remove_command("help")
 @bot.event
@@ -21,5 +21,5 @@ async def on_ready():
     inacog.setup(bot)
     status.setup(bot)
     globa.setup(bot)
-    music.setup(bot)
+    #music.setup(bot)
 bot.run(os.environ["BOT_TOKEN"])
