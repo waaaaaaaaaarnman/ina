@@ -63,9 +63,10 @@ class globalch(commands.Cog):
      if message.content.startswith('i!'):
         return
      GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
-     for data in await DB('select * from globalch'):
-       channel = str(data['id'])
-       if str(ctx.channel.id) == channel:
+     a = await DB('select * from globalch')
+     global_channels = a['id']
+     if str(ctx.channel.id) == global_channels:
+      for channel in global_channels:
             if str(message.channel.id) == channel:
              break
             else:
