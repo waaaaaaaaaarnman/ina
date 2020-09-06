@@ -33,7 +33,7 @@ class globalch(commands.Cog):
     @commands.command()
     async def global_chat_on(self,ctx):
       await ctx.channel.create_webhook(name='ina-global-webhook')
-      await DB(f'insert into globalch values ({ctx.channel.id})')
+      await DB(f'insert into globalch values ({int(ctx.channel.id)})')
       datas = await DB('select * from globalch')
       for channel in datas:
              channeldata = self.bot.get_channel(int(channel))
