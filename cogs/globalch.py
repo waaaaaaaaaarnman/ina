@@ -27,7 +27,7 @@ class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
-    async def sql(ctx,*,SQL):
+    async def sql(self,ctx,*,SQL):
      msg = await DB(SQL)
      await ctx.send(msg)
     @commands.command()
