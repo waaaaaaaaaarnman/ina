@@ -26,15 +26,15 @@ async def DB(SQL):
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    @commands.command
+    @commands.command()
     async def sql(ctx,*,SQL):
-     msg = await con.DB(SQL)
+     msg = await DB(SQL)
      await ctx.send(msg)
     @commands.command()
     async def global_chat_on(self,ctx):
       await ctx.channel.create_webhook(name='ina-global-webhook')
-      await con.DB(f'insert into globalch values ({ctx.channel.id})')
-      datas = await con.DB('select * from globalch')
+      await DB(f'insert into globalch values ({ctx.channel.id})')
+      datas = await DB('select * from globalch')
       for channel in datas:
              channeldata = self.bot.get_channel(int(channel))
              ch_webhooks = await channeldata.webhooks()
