@@ -43,18 +43,13 @@ class globalch(commands.Cog):
                                 avatar_url='https://raw.githubusercontent.com/waaaaaaaaaarnman/ina/master/AA89C19A-BA85-462F-BF8C-4C0336ABBF84.png')
     @commands.command()
     async def global_chat_off(self,ctx):
-        datach = self.bot.get_channel(745805249779990648)
-        globaldata = await datach.fetch_message(745814673265393794)
-        await globaldata.edit(content=globaldata.content.replace(str(ctx.channel.id),''))
+        await DB(f'DELETE FROM globalch WHERE id='{ctx.channel.id}';')
         webhooks = await ctx.channel.webhooks()
         webhookk = discord.utils.get(webhooks, name='ina-global-webhook')
         await webhookk.delete()
         await ctx.send('グローバルチャットから切断できました!')
-        global_ch = self.bot.get_channel(745805249779990648)
-        global_channel = await global_ch.fetch_message(745814673265393794)
-        global_channels = global_channel.content.split()
-        for channel in global_channels:
-             channeldata = self.bot.get_channel(int(channel))
+        for data in await DB('select * from globalch'):
+             channeldata = self.bot.get_channel(int(data['id']))
              ch_webhooks = await channeldata.webhooks()
              webhook = discord.utils.get(ch_webhooks, name='ina-global-webhook')
              await webhook.send(content=f'{ctx.guild.name}がGchatから去りました',
@@ -66,11 +61,9 @@ class globalch(commands.Cog):
         return
      if message.content.startswith('i!'):
         return
-     global_ch = self.bot.get_channel(745805249779990648)
-     global_channel = await global_ch.fetch_message(745814673265393794)
-     global_channels = global_channel.content.split()
      GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
-     for globalch in global_channels:
+     for data in await DB('select * from globalch'):
+      globalch = int(data['id'])
       if str(message.channel.id) == globalch:
         for channel in global_channels:
             if str(message.channel.id) == channel:
