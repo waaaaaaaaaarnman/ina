@@ -64,7 +64,9 @@ class globalch(commands.Cog):
         return
      GLOBAL_WEBHOOK_NAME = "ina-global-webhook"
      a = await DB('select * from globalch')
-     global_channels = a['id']
+     global_channels=[]
+     for b in a:
+      global_channels.append(b'id'])
      if str(ctx.channel.id) in global_channels:
       for channel in global_channels:
             if str(message.channel.id) == channel:
