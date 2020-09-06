@@ -7,7 +7,7 @@ user = dburl.user
 database = dburl.path[1:]
 port = dburl.port
 password = dburl.password
-def get_conn():
+async def get_conn():
     conn = await asyncpg.connect(
         host = host ,
         user = user, 
