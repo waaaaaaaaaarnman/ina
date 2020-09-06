@@ -66,7 +66,7 @@ class globalch(commands.Cog):
      a = await DB('select * from globalch')
      global_channels=[]
      for b in a:
-      global_channels.append(b'id'])
+      global_channels.append(b['id'])
      if str(ctx.channel.id) in global_channels:
       for channel in global_channels:
             if str(message.channel.id) == channel:
