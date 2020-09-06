@@ -1,6 +1,6 @@
 from discord.ext import commands
 import discord,asyncio
-import data.ru as con
+import ru as con
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
