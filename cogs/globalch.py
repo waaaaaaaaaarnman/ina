@@ -67,7 +67,7 @@ class globalch(commands.Cog):
      global_channels=[]
      for b in a:
       global_channels.append(b['id'])
-     if str(ctx.channel.id) in global_channels:
+     if str(message.channel.id) in global_channels:
       for channel in global_channels:
             if str(message.channel.id) == channel:
              break
