@@ -35,7 +35,7 @@ class globalch(commands.Cog):
       await ctx.channel.create_webhook(name='ina-global-webhook')
       await DB(f'insert into globalch values ({str(ctx.channel.id)})')
       datas = await DB('select * from globalch')
-      for channel in datas.values():
+      for data in datas['id']:
              channeldata = self.bot.get_channel(int(channel))
              ch_webhooks = await channeldata.webhooks()
              webhook = discord.utils.get(ch_webhooks, name='ina-global-webhook')
