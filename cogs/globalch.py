@@ -1,36 +1,18 @@
 from discord.ext import commands
 import discord,asyncio
-import os
-import asyncpg
-from yarl import URL
-dburl = URL(os.environ["DATABASE_URL"])
-host = dburl.host
-user = dburl.user
-database = dburl.path[1:]
-port = dburl.port
-password = dburl.password
-async def get_conn():
-    con = await asyncpg.connect(
-        host = host ,
-        user = user, 
-        database = database, 
-        port = port, 
-        password = password
-        )
-    return con
-conn = await get_conn()
+import data.sql_get_conn as con
 class globalch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.command
     async def sql(ctx,*,SQL):
-     msg = conn.fetch(SQL)
+     msg = await con.DB(SQL)
      await ctx.send(msg)
     @commands.command()
     async def global_chat_on(self,ctx):
       await ctx.channel.create_webhook(name='ina-global-webhook')
-      await conn.fetch(f'insert into globalch values ({ctx.channel.id})')
-      datas = await conn.fetch('select * from globalch')
+      await con.DB(f'insert into globalch values ({ctx.channel.id})')
+      datas = await con.DB('select * from globalch')
       for channel in datas:
              channeldata = self.bot.get_channel(int(channel))
              ch_webhooks = await channeldata.webhooks()
