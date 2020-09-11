@@ -60,7 +60,7 @@ class Music(commands.Cog):
             ctx.voice_client.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
         await ctx.send(f'{player.title}を再生しました。')
     @commands.command()
-    async def volume(self, ctx, volume: int):
+    async def vol(self, ctx, volume: int):
         """Changes the player's volume"""
 
         if ctx.voice_client is None:
@@ -73,13 +73,8 @@ class Music(commands.Cog):
         """Stops and disconnects the bot from voice"""
         await ctx.voice_client.disconnect()
         await ctx.send('VCから接続を切りました。')
-    @play.before_invoke
+    @commands.command()
     async def stop(self, ctx):
-        if ctx.voice_client is None:
-            if ctx.author.voice:
-                await ctx.author.voice.channel.connect()
-            else:
-                await ctx.send("あなたはVCに接続していません。")
         elif ctx.voice_client.is_playing():
             ctx.voice_client.stop()
 
