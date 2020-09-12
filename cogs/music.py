@@ -75,8 +75,7 @@ class Music(commands.Cog):
         await ctx.send('VCから接続を切りました。')
     @commands.command()
     async def stop(self, ctx):
-        elif ctx.voice_client.is_playing():
-            ctx.voice_client.stop()
+     await ctx.voice_client.stop()
 
 
 def setup(bot):
