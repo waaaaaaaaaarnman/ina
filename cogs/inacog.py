@@ -70,13 +70,13 @@ class inacog(commands.Cog):
                      (discord.Embed(title="お遊びコマンド")),
                      (discord.Embed(title="グローバルチャットのコマンド")),
                      (discord.Embed(title="その他コマンド")),
-                     (discord.Embed(title="その他コマンド"))]
+                     (discord.Embed(title="音楽コマンド"))]
             pages[0].add_field(name="i!about", value="このBotについてのInfoを表示します。")
             pages[0].add_field(name='i!help', value='このヘルプを表示します。')
             pages[0].add_field(name="公式サバ",value="[公式サバはこちら](https://discord.gg/tZqkn8H)")
             pages[0].add_field(name="公式サイト",value="[公式サイトはこちら](https://waaaaaaaaaarnman.github.io/ina/top/)")
             pages[1].add_field(name="i!omikuji", value="おみくじができます。~~ですがかなり地味です。~~")
-            pages[2].add_field(name="i!global＿chat＿<on or off>", value="グローバルチャットをオンオフできます。")
+            pages[2].add_field(name="i!global_chat_<on or off>", value="グローバルチャットをオンオフできます。")
             pages[3].add_field(name="i!search <調べたい単語>", value="Googleで検索ができます。")
             pages[3].add_field(name="i!ping", value="Ping測定ができます。")
             pages[3].add_field(name="i!bugandidea", value="レポートができます。")
