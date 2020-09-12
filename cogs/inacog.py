@@ -69,6 +69,7 @@ class inacog(commands.Cog):
             pages = [(discord.Embed(title="ヘルプコマンド")),
                      (discord.Embed(title="お遊びコマンド")),
                      (discord.Embed(title="グローバルチャットのコマンド")),
+                     (discord.Embed(title="その他コマンド")),
                      (discord.Embed(title="その他コマンド"))]
             pages[0].add_field(name="i!about", value="このBotについてのInfoを表示します。")
             pages[0].add_field(name='i!help', value='このヘルプを表示します。')
