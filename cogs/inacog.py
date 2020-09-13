@@ -69,8 +69,8 @@ class inacog(commands.Cog):
             pages = [(discord.Embed(title="ヘルプコマンド")),
                      (discord.Embed(title="お遊びコマンド")),
                      (discord.Embed(title="グローバルチャットのコマンド")),
-                     (discord.Embed(title="その他コマンド")),
-                     (discord.Embed(title="音楽コマンド"))]
+                     (discord.Embed(title="その他コマンド"))]
+                     #(discord.Embed(title="音楽コマンド"))]
             pages[0].add_field(name="i!about", value="このBotについてのInfoを表示します。")
             pages[0].add_field(name='i!help', value='このヘルプを表示します。')
             pages[0].add_field(name="公式サバ",value="[公式サバはこちら](https://discord.gg/tZqkn8H)")
@@ -80,11 +80,11 @@ class inacog(commands.Cog):
             pages[3].add_field(name="i!search <調べたい単語>", value="Googleで検索ができます。")
             pages[3].add_field(name="i!ping", value="Ping測定ができます。")
             pages[3].add_field(name="i!bugandidea", value="レポートができます。")
-            pages[4].add_field(name="i!join <vcのid>", value="vcに入ることができます。")
-            pages[4].add_field(name='i!play <つべのリンク>',value="再生ができます。")
-            pages[4].add_field(name='i!stop',value='ストップができます。')
-            pages[4].add_field(name='i!disconect',value='vcから退出させます。')
-            pages[4].add_field(name='i!vol',value='ボリュームを変えれます。')
+            #pages[4].add_field(name="i!join <vcのid>", value="vcに入ることができます。")
+            #pages[4].add_field(name='i!play <つべのリンク>',value="再生ができます。")
+            #pages[4].add_field(name='i!stop',value='ストップができます。')
+            #pages[4].add_field(name='i!disconect',value='vcから退出させます。')
+            #pages[4].add_field(name='i!vol',value='ボリュームを変えれます。')
             nav = libneko.pag.navigator.EmbedNavigator(ctx, pages, buttons=default_buttons(), timeout=20)
             nav.start()
             await ctx.send(nav)
