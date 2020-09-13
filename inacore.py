@@ -21,5 +21,5 @@ async def on_ready():
     inacog.setup(bot)
     status.setup(bot)
     globa.setup(bot)
-    music.setup(bot)
+    #music.setup(bot)
 bot.run(os.environ["BOT_TOKEN"])
